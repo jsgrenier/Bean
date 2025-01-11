@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AE25CB87-4785-4859-816E-6734646BDF31}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Bean.My.MyApplication</StartupObject>
+    <RootNamespace>Bean</RootNamespace>
+    <AssemblyName>Bean</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Bean.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Bean.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.4, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.4\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\APIClient.vb" />
+    <Compile Include="Classes\WalletHandler.vb" />
+    <Compile Include="Controls\LoadingControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NumericTextbox.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Contracts\CreateTokenForm.Designer.vb">
+      <DependentUpon>CreateTokenForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Contracts\CreateTokenForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Contracts\TopMenuContracts.Designer.vb">
+      <DependentUpon>TopMenuContracts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Contracts\TopMenuContracts.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Explorer\ExplorerForm.Designer.vb">
+      <DependentUpon>ExplorerForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Explorer\ExplorerForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Explorer\SearchForm.Designer.vb">
+      <DependentUpon>SearchForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Explorer\SearchForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Wallet\ConfirmationForm.Designer.vb">
+      <DependentUpon>ConfirmationForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Wallet\ConfirmationForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Wallet\Controls\TokenControl.Designer.vb">
+      <DependentUpon>TokenControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Wallet\Controls\TokenControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Wallet\Dialogs\ConfirmationDialog.Designer.vb">
+      <DependentUpon>ConfirmationDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Wallet\Dialogs\ConfirmationDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Wallet\ReceiveForm.Designer.vb">
+      <DependentUpon>ReceiveForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Wallet\ReceiveForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Wallet\SendForm.Designer.vb">
+      <DependentUpon>SendForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Wallet\SendForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PreForms\CreateWalletForm.Designer.vb">
+      <DependentUpon>CreateWalletForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PreForms\CreateWalletForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Wallet\PortfolioForm.Designer.vb">
+      <DependentUpon>PortfolioForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Wallet\PortfolioForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PreForms\LoadingForm.Designer.vb">
+      <DependentUpon>LoadingForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PreForms\LoadingForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PreForms\LoginForm.Designer.vb">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PreForms\LoginForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\MainMenu.Designer.vb">
+      <DependentUpon>MainMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\MainMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Explorer\TopMenuExplorer.Designer.vb">
+      <DependentUpon>TopMenuExplorer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Explorer\TopMenuExplorer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Wallet\TopMenuWallet.Designer.vb">
+      <DependentUpon>TopMenuWallet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Wallet\TopMenuWallet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PreForms\PasswordForm.Designer.vb">
+      <DependentUpon>PasswordForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PreForms\PasswordForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\Dashboard\Contracts\CreateTokenForm.resx">
+      <DependentUpon>CreateTokenForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Contracts\TopMenuContracts.resx">
+      <DependentUpon>TopMenuContracts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Explorer\SearchForm.resx">
+      <DependentUpon>SearchForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Wallet\ConfirmationForm.resx">
+      <DependentUpon>ConfirmationForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Wallet\Controls\TokenControl.resx">
+      <DependentUpon>TokenControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Wallet\Dialogs\ConfirmationDialog.resx">
+      <DependentUpon>ConfirmationDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Wallet\PortfolioForm.resx">
+      <DependentUpon>PortfolioForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Wallet\ReceiveForm.resx">
+      <DependentUpon>ReceiveForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Wallet\SendForm.resx">
+      <DependentUpon>SendForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PreForms\CreateWalletForm.resx">
+      <DependentUpon>CreateWalletForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PreForms\LoadingForm.resx">
+      <DependentUpon>LoadingForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PreForms\LoginForm.resx">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\MainMenu.resx">
+      <DependentUpon>MainMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Explorer\TopMenuExplorer.resx">
+      <DependentUpon>TopMenuExplorer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Wallet\TopMenuWallet.resx">
+      <DependentUpon>TopMenuWallet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PreForms\PasswordForm.resx">
+      <DependentUpon>PasswordForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bean_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExternalLink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkmark_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallet_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallet_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\explorer_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\explorer_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contracts_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contracts_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallet_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\explorer_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contracts_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\receive_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\receive_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\receive_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\portfolio_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\portfolio_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\portfolio_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\send_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\send_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\send_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\createToken_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\createToken_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\createToken_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blockchain_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blockchain_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blockchain_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dogecoin64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\successIcon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
