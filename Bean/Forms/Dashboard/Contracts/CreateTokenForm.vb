@@ -23,7 +23,7 @@ Public Class CreateTokenForm
                 ' Sign the data using the private key
                 Dim signature As String = WalletHandler.SignTransaction(_privateKey, dataToSign)
                 LoadingControl1.Start()
-                BtnCreate.Enabled = False
+                BtnCreate.Visible = False
                 LoadingControl1.Visible = True
 
                 ' Start a new thread for the API call
@@ -36,7 +36,6 @@ Public Class CreateTokenForm
                                                  Me.Invoke(Sub()
                                                                LoadingControl1.Visible = False
                                                                Dim _mainMenu = TryCast(Me.ParentForm, MainMenu)
-                                                               'Console.WriteLine(response.ToString())
                                                                _mainMenu.OpenContentPanel(New ConfirmationForm(response("message"), response("txId").ToString()))
                                                            End Sub)
                                              Catch ex As Exception

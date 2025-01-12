@@ -18,7 +18,6 @@ Public Class SendForm
         Try
             ' Fetch tokens owned via the API
             Dim encodedAddress As String = WebUtility.UrlEncode(WalletHandler.GetPublicKeyFromPrivateKey(_privateKey))
-            Console.WriteLine(encodedAddress)
             Dim jsonObject As JObject = _apiClient.Gett("/get_tokens_owned", New Dictionary(Of String, String) From {{"address", encodedAddress}})
             Dim tokensOwned As JObject = jsonObject("tokensOwned")
 

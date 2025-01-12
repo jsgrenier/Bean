@@ -217,6 +217,27 @@
   <data name="successIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\successIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="swap2_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\swap2_gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="swap2_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\swap2_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="swap2_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\swap2_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="swap_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\swap_gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="swap_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\swap_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="swap_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\swap_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="token_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\token_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="wallet_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wallet_gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

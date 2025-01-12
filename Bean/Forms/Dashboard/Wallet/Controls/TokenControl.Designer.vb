@@ -57,9 +57,9 @@ Partial Class TokenControl
         Me.LblTotalPrice.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
         Me.LblTotalPrice.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblTotalPrice.ForeColor = System.Drawing.Color.FromArgb(CType(CType(188, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.LblTotalPrice.Location = New System.Drawing.Point(27, 117)
+        Me.LblTotalPrice.Location = New System.Drawing.Point(18, 117)
         Me.LblTotalPrice.Name = "LblTotalPrice"
-        Me.LblTotalPrice.Size = New System.Drawing.Size(161, 20)
+        Me.LblTotalPrice.Size = New System.Drawing.Size(219, 20)
         Me.LblTotalPrice.TabIndex = 4
         Me.LblTotalPrice.Text = "$0.00"
         '
@@ -67,9 +67,9 @@ Partial Class TokenControl
         '
         Me.LblQtySymbol.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
         Me.LblQtySymbol.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblQtySymbol.Location = New System.Drawing.Point(27, 93)
+        Me.LblQtySymbol.Location = New System.Drawing.Point(18, 93)
         Me.LblQtySymbol.Name = "LblQtySymbol"
-        Me.LblQtySymbol.Size = New System.Drawing.Size(210, 21)
+        Me.LblQtySymbol.Size = New System.Drawing.Size(219, 21)
         Me.LblQtySymbol.TabIndex = 3
         Me.LblQtySymbol.Text = "500.566 DOGE"
         '

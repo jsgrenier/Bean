@@ -12,12 +12,22 @@ Public Class PortfolioForm
         DisplayTokensOwned(WalletHandler.GetPublicKeyFromPrivateKey(privatekey))
     End Sub
 
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs)
-        'RightPanel.Visible = False
-        CoinsFlowPanel.Controls.Add(New TokenControl)
+    Private Sub UpdateBalance(value As Decimal)
+        ' Safely parse the existing balance, handling any formatting
+        Dim currentBalance As Decimal
+        If Decimal.TryParse(LblBalance.Text.Replace("$", "").Replace(",", ""), currentBalance) Then
+            currentBalance += value
+        Else
+            currentBalance = value
+        End If
+
+        ' Update the label with the new balance
+        LblBalance.Text = "$" & currentBalance.ToString("#,0.########")
     End Sub
 
+
     Private Sub DisplayTokensOwned(address As String)
+        CoinsFlowPanel.SuspendLayout() ' Suspend layout updates
         CoinsFlowPanel.Controls.Clear()
 
         Try
@@ -40,28 +50,33 @@ Public Class PortfolioForm
                 ' Sort tokens by their symbol
                 Dim sortedTokens = tokensOwned.Properties().OrderBy(Function(p) p.Name)
 
+                Dim totalBalance As Decimal = 0
+
                 ' Display each token in the CoinsFlowPanel
                 For Each token In sortedTokens
-                    Dim tokenAmount As String
-                    Dim amount As Decimal = token.Value.ToObject(Of Decimal)()
-
-                    ' Format the token amount
-                    tokenAmount = If(amount = Math.Floor(amount), CInt(amount).ToString(), amount.ToString())
-
-                    ' Get the token name from the dictionary, or fallback to the symbol
+                    Dim tokenAmount As Decimal = token.Value.ToObject(Of Decimal)()
                     Dim tokenName As String = If(tokenNameDict.ContainsKey(token.Name), tokenNameDict(token.Name), token.Name)
 
                     Dim coinInfo As CoinInfo = GetCoinInfo(tokenName.ToLower())
 
+                    ' Calculate the total price for this token
+                    Dim coinPrice As Decimal = Decimal.Parse(coinInfo.CoinPrice)
+                    Dim totalPrice As Decimal = tokenAmount * coinPrice
+                    totalBalance += totalPrice
+
                     ' Create and add the token display item
                     Dim coinItem As New TokenControl()
                     coinItem.LblName.Text = $"{tokenName}"
-                    coinItem.LblQtySymbol.Text = $"{tokenAmount} {token.Name}"
-                    coinItem.CoinImage.Image = coinInfo.CoinImage
-                    coinItem.LblPrice.Text = coinInfo.CoinPrice
+                    coinItem.LblQtySymbol.Text = $"{tokenAmount.ToString("#,0.########")} {token.Name}"
+                    coinItem.CoinImage.Image = If(coinInfo.CoinImage, My.Resources.token_icon)
+                    coinItem.LblPrice.Text = "$" & coinPrice.ToString("#,0.########")
+                    coinItem.LblTotalPrice.Text = "$" & totalPrice.ToString("#,0.########")
 
                     CoinsFlowPanel.Controls.Add(coinItem)
                 Next
+
+                ' Update the overall balance
+                UpdateBalance(totalBalance)
             Else
                 Throw New Exception("API response for /get_token_names is not a valid array.")
             End If
@@ -70,6 +85,7 @@ Public Class PortfolioForm
             ' Handle any API call errors
             Console.WriteLine($"Error getting tokens owned: {ex.Message}")
         End Try
+        CoinsFlowPanel.ResumeLayout() ' Resume layout updates
     End Sub
 
     Public Function GetCoinInfo(ByVal symbol As String) As CoinInfo
@@ -92,7 +108,7 @@ Public Class PortfolioForm
                 Using stream As New MemoryStream(client.DownloadData(imageUrl))
                     coinInfo.CoinImage = Image.FromStream(stream)
                 End Using
-                coinInfo.CoinPrice = price.ToString("#,0.00")
+                coinInfo.CoinPrice = price.ToString("#,0.########")
 
                 ' Store the fetched data in the cache
                 SaveCoinInfoToCache(symbol, coinInfo)
@@ -102,7 +118,13 @@ Public Class PortfolioForm
 
         Catch ex As Exception
             Console.WriteLine($"Error getting info for {symbol}: {ex.Message}")
-            Return Nothing
+
+            ' Return default values if API call fails
+            Dim coinInfo As New CoinInfo()
+            coinInfo.CoinImage = My.Resources.token_icon ' Replace with your default image
+            coinInfo.CoinPrice = "0.00" ' Set your default price 
+
+            Return coinInfo
         End Try
     End Function
     Private _cacheFilePath As String = "coin_cache.json" ' Path to your cache file
@@ -143,16 +165,20 @@ Public Class PortfolioForm
             End If
 
             ' Convert image to Base64 string for storage
+            Dim imageBase64 As String
             Using ms As New MemoryStream()
-                coinInfo.CoinImage.Save(ms, coinInfo.CoinImage.RawFormat)
+                ' Save the image as PNG to avoid RawFormat issues
+                Using clonedImage As New Bitmap(coinInfo.CoinImage)
+                    clonedImage.Save(ms, Imaging.ImageFormat.Png)
+                End Using
                 Dim imageBytes As Byte() = ms.ToArray()
-                Dim imageBase64 As String = Convert.ToBase64String(imageBytes)
-
-                cache(symbol) = New With {
-                    .CoinPrice = coinInfo.CoinPrice,
-                    .CoinImage = imageBase64
-                }
+                imageBase64 = Convert.ToBase64String(imageBytes)
             End Using
+
+            cache(symbol) = New With {
+            .CoinPrice = coinInfo.CoinPrice,
+            .CoinImage = imageBase64
+        }
 
             Dim updatedJson As String = JsonConvert.SerializeObject(cache)
             File.WriteAllText(_cacheFilePath, updatedJson)
@@ -160,6 +186,8 @@ Public Class PortfolioForm
             Console.WriteLine($"Error writing to cache: {ex.Message}")
         End Try
     End Sub
+
+
 
 
     Public Class CoinInfo

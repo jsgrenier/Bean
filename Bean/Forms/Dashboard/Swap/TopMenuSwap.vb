@@ -1,10 +1,10 @@
-﻿Public Class TopMenuContracts
+﻿Public Class TopMenuSwap
     Private _privateKey As String
     Public Sub New(privatekey As String)
         InitializeComponent()
         _privateKey = privatekey
     End Sub
-    Private Sub TopMenuContracts_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub TopMenuWallet_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         StartingTimer.Start()
     End Sub
 
@@ -13,11 +13,11 @@
         Guna2Transition1.ShowSync(FlowLayoutPanel1)
     End Sub
 
-    Private Sub BtnSwap_MouseDown(sender As Object, e As MouseEventArgs) Handles BtnCreateToken.MouseDown
-        If BtnCreateToken.Checked = False Then
-            BtnCreateToken.Checked = True
+    Private Sub BtnSwap_MouseDown(sender As Object, e As MouseEventArgs) Handles BtnSwap.MouseDown
+        If BtnSwap.Checked = False Then
+            BtnSwap.Checked = True
             Dim _mainMenu = TryCast(Me.ParentForm, MainMenu)
-            _mainMenu.OpenContentPanel(New CreateTokenForm(_privateKey))
+            _mainMenu.OpenContentPanel(New SwapTokensForm(_privateKey))
         End If
     End Sub
 End Class

@@ -65,7 +65,7 @@ Partial Class SendForm
         Me.CBTokens.ItemHeight = 39
         Me.CBTokens.Location = New System.Drawing.Point(80, 60)
         Me.CBTokens.Name = "CBTokens"
-        Me.CBTokens.Size = New System.Drawing.Size(257, 45)
+        Me.CBTokens.Size = New System.Drawing.Size(346, 45)
         Me.CBTokens.TabIndex = 23
         '
         'MainPanel
@@ -226,7 +226,7 @@ Partial Class SendForm
         Me.TBAmount.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TBAmount.PlaceholderText = ""
         Me.TBAmount.SelectedText = ""
-        Me.TBAmount.Size = New System.Drawing.Size(257, 45)
+        Me.TBAmount.Size = New System.Drawing.Size(346, 45)
         Me.TBAmount.TabIndex = 25
         '
         'LoadingControl1

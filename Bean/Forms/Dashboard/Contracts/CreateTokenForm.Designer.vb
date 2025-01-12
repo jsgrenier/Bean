@@ -33,10 +33,10 @@ Partial Class CreateTokenForm
         Me.LblRecipient = New System.Windows.Forms.Label()
         Me.TBTokenSymbol = New Guna.UI2.WinForms.Guna2TextBox()
         Me.LblAmount = New System.Windows.Forms.Label()
-        Me.TBSupply = New Bean.NumericTextbox()
         Me.LblToken = New System.Windows.Forms.Label()
-        Me.LoadingControl1 = New Bean.LoadingControl()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.TBSupply = New Bean.NumericTextbox()
+        Me.LoadingControl1 = New Bean.LoadingControl()
         Me.TopPanel.SuspendLayout()
         Me.MainPanel.SuspendLayout()
         Me.SuspendLayout()
@@ -47,7 +47,7 @@ Partial Class CreateTokenForm
         Me.TopPanel.Dock = System.Windows.Forms.DockStyle.Top
         Me.TopPanel.Location = New System.Drawing.Point(0, 0)
         Me.TopPanel.Name = "TopPanel"
-        Me.TopPanel.Size = New System.Drawing.Size(998, 100)
+        Me.TopPanel.Size = New System.Drawing.Size(1032, 100)
         Me.TopPanel.TabIndex = 26
         '
         'LblTitle
@@ -235,6 +235,25 @@ Partial Class CreateTokenForm
         Me.LblAmount.TabIndex = 26
         Me.LblAmount.Text = "Token name (eg. Bitcoin)"
         '
+        'LblToken
+        '
+        Me.LblToken.AutoSize = True
+        Me.LblToken.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.LblToken.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblToken.Location = New System.Drawing.Point(76, 28)
+        Me.LblToken.Name = "LblToken"
+        Me.LblToken.Size = New System.Drawing.Size(110, 20)
+        Me.LblToken.TabIndex = 24
+        Me.LblToken.Text = "Owner address"
+        '
+        'Guna2Panel1
+        '
+        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Guna2Panel1.Location = New System.Drawing.Point(0, 692)
+        Me.Guna2Panel1.Name = "Guna2Panel1"
+        Me.Guna2Panel1.Size = New System.Drawing.Size(1032, 10)
+        Me.Guna2Panel1.TabIndex = 28
+        '
         'TBSupply
         '
         Me.TBSupply.AllowDecimals = True
@@ -261,17 +280,6 @@ Partial Class CreateTokenForm
         Me.TBSupply.Size = New System.Drawing.Size(257, 45)
         Me.TBSupply.TabIndex = 3
         '
-        'LblToken
-        '
-        Me.LblToken.AutoSize = True
-        Me.LblToken.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
-        Me.LblToken.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblToken.Location = New System.Drawing.Point(76, 28)
-        Me.LblToken.Name = "LblToken"
-        Me.LblToken.Size = New System.Drawing.Size(110, 20)
-        Me.LblToken.TabIndex = 24
-        Me.LblToken.Text = "Owner address"
-        '
         'LoadingControl1
         '
         Me.LoadingControl1.AnimationSpeed = 16
@@ -287,21 +295,13 @@ Partial Class CreateTokenForm
         Me.LoadingControl1.TabIndex = 21
         Me.LoadingControl1.Visible = False
         '
-        'Guna2Panel1
-        '
-        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Guna2Panel1.Location = New System.Drawing.Point(0, 692)
-        Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(998, 10)
-        Me.Guna2Panel1.TabIndex = 28
-        '
         'CreateTokenForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1015, 590)
+        Me.ClientSize = New System.Drawing.Size(1049, 590)
         Me.Controls.Add(Me.Guna2Panel1)
         Me.Controls.Add(Me.MainPanel)
         Me.Controls.Add(Me.TopPanel)

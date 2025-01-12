@@ -11,7 +11,8 @@
 
     Public Sub OpenTopMenuPanel(childForm As Form)
         If currentTopMenuPanel IsNot Nothing Then
-            currentTopMenuPanel.Close()
+            currentTopMenuPanel.Dispose()
+            'currentTopMenuPanel.Close()
         End If
         childForm.TopLevel = False
         childForm.FormBorderStyle = FormBorderStyle.None
@@ -24,7 +25,8 @@
 
     Public Sub OpenContentPanel(childForm As Form)
         If currentContentPanel IsNot Nothing Then
-            currentContentPanel.Close()
+            currentContentPanel.Dispose()
+            'currentContentPanel.Close()
         End If
         childForm.TopLevel = False
         childForm.FormBorderStyle = FormBorderStyle.None
@@ -59,9 +61,16 @@
     Private Sub BtnContracts_Mousedown(sender As Object, e As MouseEventArgs) Handles BtnContracts.MouseDown
         If BtnContracts.Checked = False Then
             BtnContracts.Checked = True
-            OpenTopMenuPanel(New TopMenuContracts)
+            OpenTopMenuPanel(New TopMenuContracts(_privateKey))
             OpenContentPanel(New CreateTokenForm(_privateKey))
         End If
     End Sub
 
+    Private Sub BtnSwap_Mousedown(sender As Object, e As MouseEventArgs) Handles BtnSwap.MouseDown
+        If BtnSwap.Checked = False Then
+            BtnSwap.Checked = True
+            OpenTopMenuPanel(New TopMenuSwap(_privateKey))
+            OpenContentPanel(New SwapTokensForm(_privateKey))
+        End If
+    End Sub
 End Class

@@ -31,6 +31,7 @@ Partial Class MainMenu
         Me.FlowMenu = New System.Windows.Forms.FlowLayoutPanel()
         Me.BtnWallet = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnExplorer = New Guna.UI2.WinForms.Guna2Button()
+        Me.BtnSwap = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnContracts = New Guna.UI2.WinForms.Guna2Button()
         Me.TopLeftPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.PBLogo = New Guna.UI2.WinForms.Guna2PictureBox()
@@ -112,6 +113,7 @@ Partial Class MainMenu
         Me.FlowMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
         Me.FlowMenu.Controls.Add(Me.BtnWallet)
         Me.FlowMenu.Controls.Add(Me.BtnExplorer)
+        Me.FlowMenu.Controls.Add(Me.BtnSwap)
         Me.FlowMenu.Controls.Add(Me.BtnContracts)
         Me.FlowMenu.Location = New System.Drawing.Point(0, 140)
         Me.FlowMenu.Name = "FlowMenu"
@@ -193,6 +195,43 @@ Partial Class MainMenu
         Me.BtnExplorer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.BtnExplorer.TextOffset = New System.Drawing.Point(30, 0)
         '
+        'BtnSwap
+        '
+        Me.BtnSwap.BorderColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.BtnSwap.BorderRadius = 10
+        Me.BtnSwap.BorderThickness = 1
+        Me.BtnSwap.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
+        Me.BtnSwap.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer))
+        Me.BtnSwap.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.BtnSwap.CheckedState.ForeColor = System.Drawing.Color.White
+        Me.BtnSwap.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnSwap.CustomImages.CheckedImage = Global.Bean.My.Resources.Resources.swap_white
+        Me.BtnSwap.CustomImages.HoveredImage = Global.Bean.My.Resources.Resources.swap_hover
+        Me.BtnSwap.CustomImages.Image = Global.Bean.My.Resources.Resources.swap_gray
+        Me.BtnSwap.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.BtnSwap.CustomImages.ImageSize = New System.Drawing.Size(24, 24)
+        Me.BtnSwap.CustomizableEdges.BottomRight = False
+        Me.BtnSwap.CustomizableEdges.TopRight = False
+        Me.BtnSwap.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnSwap.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.BtnSwap.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.BtnSwap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.BtnSwap.FillColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.BtnSwap.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSwap.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.BtnSwap.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(36, Byte), Integer))
+        Me.BtnSwap.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.BtnSwap.HoverState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(188, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BtnSwap.Location = New System.Drawing.Point(15, 110)
+        Me.BtnSwap.Margin = New System.Windows.Forms.Padding(15, 10, 0, 0)
+        Me.BtnSwap.Name = "BtnSwap"
+        Me.BtnSwap.PressedDepth = 0
+        Me.BtnSwap.Size = New System.Drawing.Size(170, 45)
+        Me.BtnSwap.TabIndex = 2
+        Me.BtnSwap.Text = "Swap"
+        Me.BtnSwap.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.BtnSwap.TextOffset = New System.Drawing.Point(30, 0)
+        '
         'BtnContracts
         '
         Me.BtnContracts.BorderColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
@@ -220,12 +259,12 @@ Partial Class MainMenu
         Me.BtnContracts.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(36, Byte), Integer))
         Me.BtnContracts.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.BtnContracts.HoverState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(188, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.BtnContracts.Location = New System.Drawing.Point(15, 110)
+        Me.BtnContracts.Location = New System.Drawing.Point(15, 165)
         Me.BtnContracts.Margin = New System.Windows.Forms.Padding(15, 10, 0, 0)
         Me.BtnContracts.Name = "BtnContracts"
         Me.BtnContracts.PressedDepth = 0
         Me.BtnContracts.Size = New System.Drawing.Size(170, 45)
-        Me.BtnContracts.TabIndex = 2
+        Me.BtnContracts.TabIndex = 3
         Me.BtnContracts.Text = "Smart Contracts"
         Me.BtnContracts.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.BtnContracts.TextOffset = New System.Drawing.Point(30, 0)
@@ -295,4 +334,5 @@ Partial Class MainMenu
     Friend WithEvents BtnExplorer As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents BtnContracts As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents BtnSwap As Guna.UI2.WinForms.Guna2Button
 End Class

@@ -16,7 +16,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
@@ -24,6 +24,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>Bean.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,6 +48,12 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>bean_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
       <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
@@ -56,6 +63,11 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.6.0.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.6.0\lib\net40\QRCoder.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -70,6 +82,7 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -115,6 +128,18 @@
       <DependentUpon>SearchForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dashboard\Explorer\SearchForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Swap\SwapTokensForm.Designer.vb">
+      <DependentUpon>SwapTokensForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Swap\SwapTokensForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Swap\TopMenuSwap.Designer.vb">
+      <DependentUpon>TopMenuSwap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Swap\TopMenuSwap.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Dashboard\Wallet\ConfirmationForm.Designer.vb">
@@ -225,8 +250,17 @@
     <EmbeddedResource Include="Forms\Dashboard\Contracts\TopMenuContracts.resx">
       <DependentUpon>TopMenuContracts.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Explorer\ExplorerForm.resx">
+      <DependentUpon>ExplorerForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard\Explorer\SearchForm.resx">
       <DependentUpon>SearchForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Swap\SwapTokensForm.resx">
+      <DependentUpon>SwapTokensForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Swap\TopMenuSwap.resx">
+      <DependentUpon>TopMenuSwap.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard\Wallet\ConfirmationForm.resx">
       <DependentUpon>ConfirmationForm.vb</DependentUpon>
@@ -400,6 +434,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\successIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bean_icon.ico" />
+    <None Include="Resources\token_icon.png" />
+    <None Include="Resources\swap2_gray.png" />
+    <None Include="Resources\swap2_hover.png" />
+    <None Include="Resources\swap2_white.png" />
+    <None Include="Resources\swap_gray.png" />
+    <None Include="Resources\swap_hover.png" />
+    <None Include="Resources\swap_white.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
