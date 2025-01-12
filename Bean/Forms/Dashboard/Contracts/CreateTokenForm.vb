@@ -36,6 +36,7 @@ Public Class CreateTokenForm
                                                  Me.Invoke(Sub()
                                                                LoadingControl1.Visible = False
                                                                Dim _mainMenu = TryCast(Me.ParentForm, MainMenu)
+                                                               'Console.WriteLine(response.ToString())
                                                                _mainMenu.OpenContentPanel(New ConfirmationForm(response("message"), response("txId").ToString()))
                                                            End Sub)
                                              Catch ex As Exception
