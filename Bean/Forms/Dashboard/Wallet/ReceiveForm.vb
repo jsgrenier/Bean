@@ -23,4 +23,14 @@ Public Class ReceiveForm
 
         PBWalletQR.Image = qrCodeImage
     End Sub
+
+    Private Sub CopyPublicKey_Click(sender As Object, e As EventArgs) Handles CopyPublicKey.Click
+        Try
+            TBPublicAddress.Focus()
+            Clipboard.SetData(DataFormats.Text, TBPublicAddress.Text)
+            TBPublicAddress.Focus()
+        Catch ex As Exception
+            Console.WriteLine(ex.ToString)
+        End Try
+    End Sub
 End Class

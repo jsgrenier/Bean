@@ -22,6 +22,7 @@ Partial Class ConfirmationDialog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConfirmationDialog))
         Me.Label2 = New System.Windows.Forms.Label()
         Me.BtnYes = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnNo = New Guna.UI2.WinForms.Guna2Button()
@@ -127,6 +128,7 @@ Partial Class ConfirmationDialog
         Me.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ForeColor = System.Drawing.Color.White
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.MaximizeBox = False
         Me.Name = "ConfirmationDialog"

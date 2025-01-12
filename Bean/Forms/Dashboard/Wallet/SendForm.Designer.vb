@@ -192,7 +192,7 @@ Partial Class SendForm
         Me.TopPanel.Dock = System.Windows.Forms.DockStyle.Top
         Me.TopPanel.Location = New System.Drawing.Point(0, 0)
         Me.TopPanel.Name = "TopPanel"
-        Me.TopPanel.Size = New System.Drawing.Size(1083, 100)
+        Me.TopPanel.Size = New System.Drawing.Size(1100, 100)
         Me.TopPanel.TabIndex = 25
         '
         'Guna2Panel1
@@ -200,7 +200,7 @@ Partial Class SendForm
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 581)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(1083, 10)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(1100, 10)
         Me.Guna2Panel1.TabIndex = 26
         '
         'TBAmount
@@ -250,7 +250,7 @@ Partial Class SendForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1100, 590)
+        Me.ClientSize = New System.Drawing.Size(1117, 590)
         Me.Controls.Add(Me.Guna2Panel1)
         Me.Controls.Add(Me.TopPanel)
         Me.Controls.Add(Me.MainPanel)

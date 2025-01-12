@@ -5,15 +5,15 @@ Imports System.Net
 
 Public Class PortfolioForm
     Private _apiClient As New APIClient()
+    Private _cacheFilePath As String = "coin_cache.json" ' Path to your cache file
+
+
     Public Sub New(privatekey As String)
         InitializeComponent()
-
-        ' Add any initialization after the InitializeComponent() call.
         DisplayTokensOwned(WalletHandler.GetPublicKeyFromPrivateKey(privatekey))
     End Sub
 
     Private Sub UpdateBalance(value As Decimal)
-        ' Safely parse the existing balance, handling any formatting
         Dim currentBalance As Decimal
         If Decimal.TryParse(LblBalance.Text.Replace("$", "").Replace(",", ""), currentBalance) Then
             currentBalance += value
@@ -21,7 +21,6 @@ Public Class PortfolioForm
             currentBalance = value
         End If
 
-        ' Update the label with the new balance
         LblBalance.Text = "$" & currentBalance.ToString("#,0.########")
     End Sub
 
@@ -127,7 +126,7 @@ Public Class PortfolioForm
             Return coinInfo
         End Try
     End Function
-    Private _cacheFilePath As String = "coin_cache.json" ' Path to your cache file
+
     Private Function GetCoinInfoFromCache(ByVal symbol As String) As CoinInfo
         Try
             If File.Exists(_cacheFilePath) Then

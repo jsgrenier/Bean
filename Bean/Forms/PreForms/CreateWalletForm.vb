@@ -51,4 +51,24 @@
             MainForm.OpenMainPanel(loadingForm)
         End If
     End Sub
+
+    Private Sub CopyPublicKey_Click(sender As Object, e As EventArgs) Handles CopyPublicKey.Click
+        Try
+            TBPublicAddress.Focus()
+            Clipboard.SetData(DataFormats.Text, TBPublicAddress.Text)
+            TBPublicAddress.Focus()
+        Catch ex As Exception
+            Console.WriteLine(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub CopyPrivateKey_Click(sender As Object, e As EventArgs) Handles CopyPrivateKey.Click
+        Try
+            TBPrivateAddress.Focus()
+            Clipboard.SetData(DataFormats.Text, TBPrivateAddress.Text)
+            TBPrivateAddress.Focus()
+        Catch ex As Exception
+            Console.WriteLine(ex.ToString)
+        End Try
+    End Sub
 End Class
