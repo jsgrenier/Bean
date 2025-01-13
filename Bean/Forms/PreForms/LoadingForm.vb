@@ -20,63 +20,75 @@ Public Class LoadingForm
     Private Sub StartingTimer_Tick(sender As Object, e As EventArgs) Handles StartingTimer.Tick
         StartingTimer.Stop()
         Guna2Transition1.ShowSync(LoadingPanel)
-        ValidatingProcess.Start()
+        ValidateAsync()
     End Sub
+
+    Private Async Sub ValidateAsync()
+        ' --- Network Check ---
+        For i As Integer = PBValidating.Value To 20 Step 2 ' Increment from current value to 20
+            PBValidating.Value = i
+            Await Task.Delay(50) ' Adjust delay as needed
+        Next
+
+        If Await _apiClient.IsConnectionFunctionalAsync() = False Then
+            PBNetwork.Image = My.Resources.error_red
+            ShowError("network", "Blockchain is not accessible")
+            Exit Sub
+        Else
+            PBNetwork.Image = My.Resources.checkmark_blue
+        End If
+
+        ' --- Blockchain Validity Check ---
+        For i As Integer = PBValidating.Value To 50 Step 2 ' Increment from current value to 50
+            PBValidating.Value = i
+            Await Task.Delay(50)
+        Next
+
+        If Await _apiClient.CheckBlockchainValidityAsync() = False Then
+            PBChain.Image = My.Resources.error_red
+            ' ShowError("chain", "Blockchain is not valid") - commented out as before
+        Else
+            PBChain.Image = My.Resources.checkmark_blue
+        End If
+
+        ' --- Key Validity Check ---
+        For i As Integer = PBValidating.Value To 80 Step 2 ' Increment from current value to 80
+            PBValidating.Value = i
+            Await Task.Delay(50)
+        Next
+
+        If WalletHandler.GetPublicKeyFromPrivateKey(_privateKey).Contains("Invalid format") Then
+            PBKey.Image = My.Resources.error_red
+            ShowError("key", "Private key has the wrong format")
+            Exit Sub
+        Else
+            PBKey.Image = My.Resources.checkmark_blue
+        End If
+
+        ' --- Complete ---
+        For i As Integer = PBValidating.Value To 100 Step 2 ' Increment from current value to 100
+            PBValidating.Value = i
+            Await Task.Delay(50)
+        Next
+
+        LabelTitle.Text = "Loading your wallet..."
+        PBValidating.Value = 50 ' Reset for loading animation
+        PBValidating.Animated = True
+
+        Await Task.Delay(1000)
+
+        MainForm.OpenMainPanel(New MainMenu(_privateKey))
+        MainForm.MainPanel.AutoScroll = False
+        MainForm.WindowState = FormWindowState.Maximized
+    End Sub
+
+
 
     Private Sub ValidatingProcess_Tick(sender As Object, e As EventArgs) Handles ValidatingProcess.Tick
         PBValidating.Increment(2)
     End Sub
 
-    Private Sub PBValidating_ValueChanged(sender As Object, e As EventArgs) Handles PBValidating.ValueChanged
-        Select Case PBValidating.Value
-            Case 30
-                ValidatingProcess.Stop()
 
-                If _apiClient.IsConnectionFunctional = False Then
-                    PBNetwork.Image = My.Resources.error_red
-                    ShowError("network", "Blockchain is not accessible")
-                    Exit Sub
-                Else
-                    PBNetwork.Image = My.Resources.checkmark_blue
-                End If
-
-                ValidatingProcess.Start()
-
-            Case 60
-                ValidatingProcess.Stop()
-                'We need to fix this, it always return False (server sided)
-                If _apiClient.CheckBlockchainValidity = False Then
-                    PBChain.Image = My.Resources.error_red
-                    'ShowError("chain", "Blockchain is not valid")
-                    'Exit Sub
-                Else
-                    PBChain.Image = My.Resources.checkmark_blue
-                End If
-
-                ValidatingProcess.Start()
-
-            Case 80
-                ValidatingProcess.Stop()
-                If WalletHandler.GetPublicKeyFromPrivateKey(_privateKey).Contains("Invalid format") Then
-                    PBKey.Image = My.Resources.error_red
-                    ShowError("key", "Private key has the wrong format")
-                Else
-                    PBKey.Image = My.Resources.checkmark_blue
-                End If
-
-                ValidatingProcess.Start()
-
-
-            Case 100
-                ValidatingProcess.Stop()
-                LabelTitle.Text = "Loading your wallet..."
-                PBValidating.Value = 50
-                PBValidating.Animated = True
-
-                WalletConnector.Start()
-
-        End Select
-    End Sub
 
     Private Sub WalletConnector_Tick(sender As Object, e As EventArgs) Handles WalletConnector.Tick
         WalletConnector.Stop()

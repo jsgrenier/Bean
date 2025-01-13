@@ -8,14 +8,21 @@ Public Class ConfirmationForm
         LabelTitle.Text = message
         IDLabel.Text = txID
 
-        TrackTransaction(txID)
+        ' Call the async method to track the transaction
+        TrackTransactionAsync(txID)
     End Sub
 
-    Private Sub TrackTransaction(txid As String)
-        Dim jsonObject As JObject = _apiClient.Gett("/transaction", New Dictionary(Of String, String) From {{"id", txid}})
-        Dim _status As String = jsonObject("status").ToString()
+    Private Async Sub TrackTransactionAsync(txid As String)
+        Try
+            ' Use the async GettAsync method
+            Dim jsonObject As JObject = Await _apiClient.GettAsync("/transaction", New Dictionary(Of String, String) From {{"id", txid}})
+            Dim _status As String = jsonObject("status").ToString()
 
-        Console.WriteLine(jsonObject("transaction")("timestamp").ToString())
+        Catch ex As Exception
+            ' Handle exceptions that might occur during the API call
+            Console.WriteLine($"Error tracking transaction: {ex.Message}")
+            ' You might want to display an error message to the user here
+        End Try
     End Sub
 
     Private Sub ConfirmationForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load

@@ -3,6 +3,8 @@
     Public currentContentPanel As Form
     Private ReadOnly _privateKey As String
 
+
+
     Public Sub New(privatekey As String)
         InitializeComponent()
 
@@ -11,9 +13,9 @@
 
     Public Sub OpenTopMenuPanel(childForm As Form)
         If currentTopMenuPanel IsNot Nothing Then
-            currentTopMenuPanel.Dispose()
-            'currentTopMenuPanel.Close()
+            currentTopMenuPanel.Close()
         End If
+        currentTopMenuPanel = childForm
         childForm.TopLevel = False
         childForm.FormBorderStyle = FormBorderStyle.None
         childForm.Dock = DockStyle.Fill
@@ -25,9 +27,9 @@
 
     Public Sub OpenContentPanel(childForm As Form)
         If currentContentPanel IsNot Nothing Then
-            currentContentPanel.Dispose()
-            'currentContentPanel.Close()
+            currentContentPanel.Close()
         End If
+        currentContentPanel = childForm
         childForm.TopLevel = False
         childForm.FormBorderStyle = FormBorderStyle.None
         childForm.Dock = DockStyle.Fill

@@ -30,11 +30,12 @@ Partial Class SendForm
         Me.LblRecipient = New System.Windows.Forms.Label()
         Me.TBRecipient = New Guna.UI2.WinForms.Guna2TextBox()
         Me.LblAmount = New System.Windows.Forms.Label()
+        Me.TBAmount = New Bean.NumericTextbox()
+        Me.TBContextMenu = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.LblToken = New System.Windows.Forms.Label()
+        Me.LoadingControl1 = New Bean.LoadingControl()
         Me.TopPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.TBAmount = New Bean.NumericTextbox()
-        Me.LoadingControl1 = New Bean.LoadingControl()
         Me.MainPanel.SuspendLayout()
         Me.TopPanel.SuspendLayout()
         Me.SuspendLayout()
@@ -67,6 +68,7 @@ Partial Class SendForm
         Me.CBTokens.Name = "CBTokens"
         Me.CBTokens.Size = New System.Drawing.Size(346, 45)
         Me.CBTokens.TabIndex = 23
+        Me.CBTokens.TextOffset = New System.Drawing.Point(10, 0)
         '
         'MainPanel
         '
@@ -175,6 +177,52 @@ Partial Class SendForm
         Me.LblAmount.TabIndex = 26
         Me.LblAmount.Text = "Amount"
         '
+        'TBAmount
+        '
+        Me.TBAmount.AllowDecimals = True
+        Me.TBAmount.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.TBAmount.BorderColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer))
+        Me.TBAmount.BorderRadius = 10
+        Me.TBAmount.ContextMenuStrip = Me.TBContextMenu
+        Me.TBAmount.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TBAmount.DefaultText = ""
+        Me.TBAmount.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.TBAmount.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.TBAmount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TBAmount.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TBAmount.FillColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(42, Byte), Integer))
+        Me.TBAmount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TBAmount.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TBAmount.ForeColor = System.Drawing.Color.White
+        Me.TBAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TBAmount.Location = New System.Drawing.Point(80, 170)
+        Me.TBAmount.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TBAmount.MaxLength = 19
+        Me.TBAmount.Name = "TBAmount"
+        Me.TBAmount.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TBAmount.PlaceholderText = ""
+        Me.TBAmount.SelectedText = ""
+        Me.TBAmount.Size = New System.Drawing.Size(346, 45)
+        Me.TBAmount.TabIndex = 25
+        Me.TBAmount.TextOffset = New System.Drawing.Point(10, 0)
+        '
+        'TBContextMenu
+        '
+        Me.TBContextMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.TBContextMenu.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TBContextMenu.Name = "TBContextMenu"
+        Me.TBContextMenu.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(CType(CType(151, Byte), Integer), CType(CType(143, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TBContextMenu.RenderStyle.BorderColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer))
+        Me.TBContextMenu.RenderStyle.ColorTable = Nothing
+        Me.TBContextMenu.RenderStyle.RoundedEdges = True
+        Me.TBContextMenu.RenderStyle.SelectionArrowColor = System.Drawing.Color.White
+        Me.TBContextMenu.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.TBContextMenu.RenderStyle.SelectionForeColor = System.Drawing.Color.White
+        Me.TBContextMenu.RenderStyle.SeparatorColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer))
+        Me.TBContextMenu.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.TBContextMenu.ShowImageMargin = False
+        Me.TBContextMenu.Size = New System.Drawing.Size(36, 4)
+        '
         'LblToken
         '
         Me.LblToken.AutoSize = True
@@ -185,6 +233,21 @@ Partial Class SendForm
         Me.LblToken.Size = New System.Drawing.Size(50, 20)
         Me.LblToken.TabIndex = 24
         Me.LblToken.Text = "Token"
+        '
+        'LoadingControl1
+        '
+        Me.LoadingControl1.AnimationSpeed = 16
+        Me.LoadingControl1.ArcColor = System.Drawing.Color.FromArgb(CType(CType(92, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(178, Byte), Integer))
+        Me.LoadingControl1.ArcLength = 120
+        Me.LoadingControl1.ArcThickness = 5
+        Me.LoadingControl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.LoadingControl1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(42, Byte), Integer))
+        Me.LoadingControl1.Location = New System.Drawing.Point(114, 389)
+        Me.LoadingControl1.Name = "LoadingControl1"
+        Me.LoadingControl1.PaddingSize = 10
+        Me.LoadingControl1.Size = New System.Drawing.Size(45, 45)
+        Me.LoadingControl1.TabIndex = 21
+        Me.LoadingControl1.Visible = False
         '
         'TopPanel
         '
@@ -202,47 +265,6 @@ Partial Class SendForm
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.Size = New System.Drawing.Size(1100, 10)
         Me.Guna2Panel1.TabIndex = 26
-        '
-        'TBAmount
-        '
-        Me.TBAmount.AllowDecimals = True
-        Me.TBAmount.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
-        Me.TBAmount.BorderColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer))
-        Me.TBAmount.BorderRadius = 10
-        Me.TBAmount.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.TBAmount.DefaultText = ""
-        Me.TBAmount.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.TBAmount.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.TBAmount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.TBAmount.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.TBAmount.FillColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(42, Byte), Integer))
-        Me.TBAmount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TBAmount.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TBAmount.ForeColor = System.Drawing.Color.White
-        Me.TBAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TBAmount.Location = New System.Drawing.Point(80, 170)
-        Me.TBAmount.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.TBAmount.Name = "TBAmount"
-        Me.TBAmount.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.TBAmount.PlaceholderText = ""
-        Me.TBAmount.SelectedText = ""
-        Me.TBAmount.Size = New System.Drawing.Size(346, 45)
-        Me.TBAmount.TabIndex = 25
-        '
-        'LoadingControl1
-        '
-        Me.LoadingControl1.AnimationSpeed = 16
-        Me.LoadingControl1.ArcColor = System.Drawing.Color.FromArgb(CType(CType(92, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(178, Byte), Integer))
-        Me.LoadingControl1.ArcLength = 120
-        Me.LoadingControl1.ArcThickness = 5
-        Me.LoadingControl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
-        Me.LoadingControl1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(42, Byte), Integer))
-        Me.LoadingControl1.Location = New System.Drawing.Point(114, 389)
-        Me.LoadingControl1.Name = "LoadingControl1"
-        Me.LoadingControl1.PaddingSize = 10
-        Me.LoadingControl1.Size = New System.Drawing.Size(45, 45)
-        Me.LoadingControl1.TabIndex = 21
-        Me.LoadingControl1.Visible = False
         '
         'SendForm
         '
@@ -279,4 +301,5 @@ Partial Class SendForm
     Friend WithEvents BtnSend As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents LoadingControl1 As LoadingControl
     Friend WithEvents LabelError As Label
+    Friend WithEvents TBContextMenu As Guna.UI2.WinForms.Guna2ContextMenuStrip
 End Class

@@ -2,6 +2,7 @@
 Imports Newtonsoft.Json.Linq
 Imports System.IO
 Imports System.Net
+Imports System.Net.Http
 
 Public Class PortfolioForm
     Private _apiClient As New APIClient()
@@ -10,7 +11,7 @@ Public Class PortfolioForm
 
     Public Sub New(privatekey As String)
         InitializeComponent()
-        DisplayTokensOwned(WalletHandler.GetPublicKeyFromPrivateKey(privatekey))
+        DisplayTokensOwnedAsync(WalletHandler.GetPublicKeyFromPrivateKey(privatekey))
     End Sub
 
     Private Sub UpdateBalance(value As Decimal)
@@ -25,40 +26,34 @@ Public Class PortfolioForm
     End Sub
 
 
-    Private Sub DisplayTokensOwned(address As String)
-        CoinsFlowPanel.SuspendLayout() ' Suspend layout updates
+    Private Async Sub DisplayTokensOwnedAsync(address As String) ' Make this method async
+        CoinsFlowPanel.SuspendLayout()
         CoinsFlowPanel.Controls.Clear()
 
         Try
-            ' Encode the address
             Dim encodedAddress As String = WebUtility.UrlEncode(address)
 
-            ' Use the APIClient to make the GET request for tokens owned
-            Dim jsonObject As JObject = _apiClient.Gett("/get_tokens_owned", New Dictionary(Of String, String) From {{"address", encodedAddress}})
+            ' Use the async GettAsync method
+            Dim jsonObject As JObject = Await _apiClient.GettAsync("/get_tokens_owned", New Dictionary(Of String, String) From {{"address", encodedAddress}})
             Dim tokensOwned As JObject = jsonObject("tokensOwned")
 
-            ' Fetch token names from the API
-            Dim tokenNamesToken As JToken = _apiClient.Gett("/get_token_names")
+            ' Use the async GettAsync method
+            Dim tokenNamesToken As JToken = Await _apiClient.GettAsync("/get_token_names")
 
-            ' Ensure tokenNamesToken is a JArray
             If tokenNamesToken.Type = JTokenType.Array Then
-                ' Convert the JArray into a dictionary for easy lookup
                 Dim tokenNameDict As Dictionary(Of String, String) = tokenNamesToken.ToObject(Of JArray)() _
-                .ToDictionary(Function(t) t("symbol").ToString(), Function(t) t("name").ToString())
+                    .ToDictionary(Function(t) t("symbol").ToString(), Function(t) t("name").ToString())
 
-                ' Sort tokens by their symbol
                 Dim sortedTokens = tokensOwned.Properties().OrderBy(Function(p) p.Name)
-
                 Dim totalBalance As Decimal = 0
 
-                ' Display each token in the CoinsFlowPanel
                 For Each token In sortedTokens
                     Dim tokenAmount As Decimal = token.Value.ToObject(Of Decimal)()
                     Dim tokenName As String = If(tokenNameDict.ContainsKey(token.Name), tokenNameDict(token.Name), token.Name)
 
-                    Dim coinInfo As CoinInfo = GetCoinInfo(tokenName.ToLower())
+                    ' Await the GetCoinInfoAsync method (see below for the updated method)
+                    Dim coinInfo As CoinInfo = Await GetCoinInfoAsync(tokenName.ToLower())
 
-                    ' Calculate the total price for this token
                     Dim coinPrice As Decimal = Decimal.Parse(coinInfo.CoinPrice)
                     Dim totalPrice As Decimal = tokenAmount * coinPrice
                     totalBalance += totalPrice
@@ -87,29 +82,28 @@ Public Class PortfolioForm
         CoinsFlowPanel.ResumeLayout() ' Resume layout updates
     End Sub
 
-    Public Function GetCoinInfo(ByVal symbol As String) As CoinInfo
+    Public Async Function GetCoinInfoAsync(ByVal symbol As String) As Task(Of CoinInfo) ' Make async and return Task(Of CoinInfo)
         Try
-            ' Check if the coin data is in the cache
             Dim cachedCoinInfo As CoinInfo = GetCoinInfoFromCache(symbol)
             If cachedCoinInfo IsNot Nothing Then
                 Return cachedCoinInfo
             End If
 
-            ' If not cached, fetch from the API
             Dim apiUrl As String = $"https://api.coingecko.com/api/v3/coins/{symbol}"
-            Using client As New WebClient()
-                Dim json As String = client.DownloadString(apiUrl)
+            Using client As New HttpClient() ' Use HttpClient for async requests
+                Dim json As String = Await client.GetStringAsync(apiUrl) ' Use GetStringAsync
                 Dim jsonObject As JObject = JObject.Parse(json)
                 Dim imageUrl As String = jsonObject("image")("small").ToString()
                 Dim price As Decimal = jsonObject("market_data")("current_price")("usd").ToObject(Of Decimal)()
 
                 Dim coinInfo As New CoinInfo()
-                Using stream As New MemoryStream(client.DownloadData(imageUrl))
+                ' Use GetByteArrayAsync for downloading image data
+                Dim imageBytes As Byte() = Await client.GetByteArrayAsync(imageUrl)
+                Using stream As New MemoryStream(imageBytes)
                     coinInfo.CoinImage = Image.FromStream(stream)
                 End Using
                 coinInfo.CoinPrice = price.ToString("#,0.########")
 
-                ' Store the fetched data in the cache
                 SaveCoinInfoToCache(symbol, coinInfo)
 
                 Return coinInfo

@@ -151,8 +151,6 @@ Public Class WalletHandler
             ' Initialize the signer for signing
             signer.Init(True, keyParameters)
 
-            ' Create the transaction data string (strict formatting)
-            'Dim transactionData As String = $"{fromAddress}:{toAddress}:{amount}:{tokenSymbol}"
             Dim bytes As Byte() = Encoding.UTF8.GetBytes(transactionData)
 
             ' Update the signer with the transaction data

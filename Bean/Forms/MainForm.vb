@@ -16,16 +16,6 @@
         End Get
     End Property
 
-    Private Sub MainForm_SizeChanged(sender As Object, e As EventArgs) Handles MyBase.SizeChanged
-        'LoadingControl1.Top = 163
-        If currentChildformContentPanel IsNot Nothing Then
-            Select Case currentChildformContentPanel.Name
-                Case "LoginForm", "CreateWalletForm", "LoadingForm"
-                    'currentChildformContentPanel.Top = (MainPanel.Height - currentChildformContentPanel.Height) / 2
-            End Select
-        End If
-    End Sub
-
     Private Sub StartingTimer_Tick(sender As Object, e As EventArgs) Handles StartingTimer.Tick
         StartingTimer.Stop()
         LoadingControl1.Visible = False

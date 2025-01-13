@@ -38,9 +38,9 @@ Partial Class ConfirmationDialog
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(126, 33)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(359, 21)
+        Me.Label2.Size = New System.Drawing.Size(334, 21)
         Me.Label2.TabIndex = 19
-        Me.Label2.Text = "Are you sure you want to confirm this transaction?"
+        Me.Label2.Text = "Are you sure you want to sign this transaction?"
         '
         'BtnYes
         '
@@ -133,7 +133,7 @@ Partial Class ConfirmationDialog
         Me.MaximizeBox = False
         Me.Name = "ConfirmationDialog"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Confirm transfer"
+        Me.Text = "Confirm transaction"
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

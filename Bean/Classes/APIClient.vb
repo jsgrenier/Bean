@@ -1,7 +1,9 @@
 ﻿Imports System.Net
 Imports System.IO
 Imports System.Text
+Imports System.Threading.Tasks
 Imports Newtonsoft.Json.Linq
+Imports System.Net.Http
 
 Public Class APIClient
 
@@ -12,116 +14,95 @@ Public Class APIClient
         '_baseUrl = "http://192.168.18.17:8080/api"
     End Sub
 
-    Public Function IsConnectionFunctional() As Boolean
+    Public Async Function IsConnectionFunctionalAsync() As Task(Of Boolean)
         Try
-            ' Make a simple GET request to a lightweight endpoint (e.g., check server status)
-            Dim url As String = _baseUrl & "/check_validity" ' Assuming you have a /ping endpoint
-            Dim request As WebRequest = WebRequest.Create(url)
-            request.Method = "GET"
+            ' Use HttpClient for async requests
+            Using client As New HttpClient()
+                ' Make a simple GET request to a lightweight endpoint
+                Dim url As String = _baseUrl & "/check_validity"
+                Dim response As HttpResponseMessage = Await client.GetAsync(url)
 
-            Using response As WebResponse = request.GetResponse()
                 ' If the response is successful, the connection is functional
-                Return True
+                Return response.IsSuccessStatusCode
             End Using
 
-        Catch ex As WebException
+        Catch ex As Exception
             Console.WriteLine($"Connection check failed: {ex.Message}")
             Return False
         End Try
     End Function
 
-    Public Function Gett(endpoint As String, Optional queryParams As Dictionary(Of String, String) = Nothing) As JToken
+    Public Async Function GettAsync(endpoint As String, Optional queryParams As Dictionary(Of String, String) = Nothing) As Task(Of JToken)
         Try
             Dim url As String = _baseUrl & endpoint
             If queryParams IsNot Nothing Then
                 url &= "?" & BuildQueryString(queryParams)
             End If
 
-            Dim request As WebRequest = WebRequest.Create(url)
-            request.Method = "GET"
+            Using client As New HttpClient()
+                Dim response As HttpResponseMessage = Await client.GetAsync(url)
+                response.EnsureSuccessStatusCode() ' Throw an exception for non-success status codes
 
-            Using response As WebResponse = request.GetResponse()
-                Using reader As New StreamReader(response.GetResponseStream())
-                    Dim jsonResponse As String = reader.ReadToEnd()
-                    Dim jsonToken As JToken = JToken.Parse(jsonResponse)
-                    If endpoint = "/get_token_names" Then
-                        Return jsonToken
-                    Else
-                        Return jsonToken
-                    End If
-                End Using
+                Dim jsonResponse As String = Await response.Content.ReadAsStringAsync()
+                Dim jsonToken As JToken = JToken.Parse(jsonResponse)
+                Return jsonToken
             End Using
 
-        Catch ex As WebException
+        Catch ex As Exception
             Console.WriteLine($"Error communicating with blockchain: {ex.Message}")
-            ' Optionally, you can re-throw the exception or a custom exception
-            ' to be handled by the calling code.
             Throw New Exception("Blockchain is not reachable.", ex)
         End Try
     End Function
 
-    Public Function Post(endpoint As String, jsonData As String) As JObject
+    Public Async Function PostAsync(endpoint As String, jsonData As String) As Task(Of JObject)
         Dim url As String = _baseUrl & endpoint
 
-        Dim request As WebRequest = WebRequest.Create(url)
-        request.Method = "POST"
-        request.ContentType = "application/json"
+        Using client As New HttpClient()
+            Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
+            Dim response As HttpResponseMessage = Await client.PostAsync(url, content)
+            response.EnsureSuccessStatusCode()
 
-        Using writer As New StreamWriter(request.GetRequestStream())
-            writer.Write(jsonData)
-        End Using
-
-        Using response As WebResponse = request.GetResponse()
-            Using reader As New StreamReader(response.GetResponseStream())
-                Dim jsonResponse As String = reader.ReadToEnd()
-                Return JObject.Parse(jsonResponse)
-            End Using
+            Dim jsonResponse As String = Await response.Content.ReadAsStringAsync()
+            Return JObject.Parse(jsonResponse)
         End Using
     End Function
 
-    Public Function TransferTokens(fromAddress As String, toAddress As String, amount As Decimal, tokenSymbol As String, signature As String) As JObject
+    Public Async Function TransferTokensAsync(fromAddress As String, toAddress As String, amount As Decimal, tokenSymbol As String, signature As String) As Task(Of JObject)
         Try
-            ' Create a dictionary to hold the transaction data
             Dim data As New Dictionary(Of String, String) From {
-            {"toAddress", toAddress},
-            {"amount", amount.ToString()},
-            {"tokenSymbol", tokenSymbol},
-            {"signature", signature},
-            {"fromAddress", fromAddress}
-        }
+                {"toAddress", toAddress},
+                {"amount", amount.ToString()},
+                {"tokenSymbol", tokenSymbol},
+                {"signature", signature},
+                {"fromAddress", fromAddress}
+            }
 
-            ' Serialize the dictionary to a JSON string
             Dim jsonData As String = Newtonsoft.Json.JsonConvert.SerializeObject(data)
 
-            ' Make a POST request to the /transfer_tokens endpoint with the JSON string
-            Return Post("/transfer_tokens", jsonData)
+            Return Await PostAsync("/transfer_tokens", jsonData)
 
         Catch ex As Exception
-            ' Handle exceptions (e.g., log the error, display a message)
             Console.WriteLine($"Error transferring tokens: {ex.Message}")
-            Throw ' Or handle the exception as needed
+            Throw
         End Try
     End Function
 
-    Public Function CreateToken(name As String, symbol As String, supply As String, publickey As String, signature As String) As JObject
+    Public Async Function CreateTokenAsync(name As String, symbol As String, supply As String, publickey As String, signature As String) As Task(Of JObject)
         Try
-            ' Create a dictionary to hold the transaction data
             Dim data As New Dictionary(Of String, String) From {
-            {"name", name},
-            {"symbol", symbol},
-            {"initialSupply", supply},
-            {"ownerPublicKey", publickey},
-            {"signature", signature}
-        }
-            ' Serialize the dictionary to a JSON string
+                {"name", name},
+                {"symbol", symbol},
+                {"initialSupply", supply},
+                {"ownerPublicKey", publickey},
+                {"signature", signature}
+            }
             Dim jsonData As String = Newtonsoft.Json.JsonConvert.SerializeObject(data)
 
-            ' Make a POST request to the /transfer_tokens endpoint with the JSON string
-            Return Post("/create_token", jsonData)
+            Return Await PostAsync("/create_token", jsonData)
+
         Catch ex As Exception
-            ' Handle exceptions (e.g., log the error, display a message)
             Console.WriteLine($"Error creating tokens: {ex.Message}")
-            Throw ' Or handle the exception as needed
+            Throw
         End Try
     End Function
 
@@ -133,18 +114,13 @@ Public Class APIClient
         Return queryString.TrimEnd("&")
     End Function
 
-    Public Function CheckBlockchainValidity() As Boolean
+    Public Async Function CheckBlockchainValidityAsync() As Task(Of Boolean)
         Try
-            ' Make a GET request to the /api/check_validity endpoint
-            Dim response As JObject = Gett("/check_validity")
-
-            ' Access the "isValid" property in the JSON response
+            Dim response As JObject = Await GettAsync("/check_validity")
             Return response("isValid").ToObject(Of Boolean)()
         Catch ex As Exception
-            ' Handle the exception (e.g., log the error, display a message)
             Console.WriteLine($"Error checking blockchain validity: {ex.Message}")
-            Return False ' Or throw the exception if you want to handle it elsewhere
+            Return False
         End Try
     End Function
-
 End Class
