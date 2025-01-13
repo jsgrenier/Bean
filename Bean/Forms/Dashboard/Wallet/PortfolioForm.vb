@@ -16,20 +16,27 @@ Public Class PortfolioForm
 
     Private Sub UpdateBalance(value As Decimal)
         Dim currentBalance As Decimal
-        'If Decimal.TryParse(LblBalance.Text.Replace("$", "").Replace(",", ""), currentBalance) Then
-        'currentBalance += value
-        'Else
         currentBalance = value
-        'End If
-
         CoinsFlowPanel.Controls.Add(New BalanceControl("$" & currentBalance.ToString("#,0.########")))
-        'LblBalance.Text = "$" & currentBalance.ToString("#,0.########")
+    End Sub
+
+    Private Sub LoadingTimer_Tick(sender As Object, e As EventArgs) Handles LoadingTimer.Tick
+        LoadingTimer.Stop()
+        LoadingControl1.Stop()
+        LoadingControl1.Visible = False
+        CoinsFlowPanel.Visible = True
     End Sub
 
 
     Private Async Sub DisplayTokensOwnedAsync(address As String) ' Make this method async
         CoinsFlowPanel.SuspendLayout()
         CoinsFlowPanel.Controls.Clear()
+
+        CoinsFlowPanel.Visible = False
+        LoadingControl1.Start()
+        LoadingControl1.Visible = True
+
+
 
         Try
             Dim encodedAddress As String = WebUtility.UrlEncode(address)
@@ -44,7 +51,8 @@ Public Class PortfolioForm
             If tokenNamesToken.Type = JTokenType.Array Then
                 Dim tokenNameDict As Dictionary(Of String, String) = tokenNamesToken.ToObject(Of JArray)() _
                     .ToDictionary(Function(t) t("symbol").ToString(), Function(t) t("name").ToString())
-                CoinsFlowPanel.SuspendLayout()
+
+
                 Dim sortedTokens = tokensOwned.Properties().OrderBy(Function(p) p.Name)
                 Dim totalBalance As Decimal = 0
                 Dim balctrl As New BalanceControl(totalBalance)
@@ -72,7 +80,6 @@ Public Class PortfolioForm
                     CoinsFlowPanel.Controls.Add(coinItem)
                     balctrl.UpdateBalance(totalBalance)
                 Next
-                CoinsFlowPanel.ResumeLayout()
                 ' Update the overall balance
                 'UpdateBalance(totalBalance)
             Else
@@ -83,6 +90,9 @@ Public Class PortfolioForm
             ' Handle any API call errors
             Console.WriteLine($"Error getting tokens owned: {ex.Message}")
         End Try
+        LoadingTimer.Start()
+
+
         CoinsFlowPanel.ResumeLayout() ' Resume layout updates
     End Sub
 
@@ -191,4 +201,6 @@ Public Class PortfolioForm
         Public Property CoinImage As Image
         Public Property CoinPrice As String
     End Class
+
+
 End Class
