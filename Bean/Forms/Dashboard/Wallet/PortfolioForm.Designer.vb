@@ -22,41 +22,17 @@ Partial Class PortfolioForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.LblTitle = New System.Windows.Forms.Label()
-        Me.LblBalance = New System.Windows.Forms.Label()
         Me.TopPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.CoinsFlowPanel = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.TopPanel.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'LblTitle
-        '
-        Me.LblTitle.AutoSize = True
-        Me.LblTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.LblTitle.Font = New System.Drawing.Font("Segoe UI Semibold", 20.25!, System.Drawing.FontStyle.Bold)
-        Me.LblTitle.Location = New System.Drawing.Point(58, 9)
-        Me.LblTitle.Name = "LblTitle"
-        Me.LblTitle.Size = New System.Drawing.Size(157, 37)
-        Me.LblTitle.TabIndex = 4
-        Me.LblTitle.Text = "My Balance"
-        '
-        'LblBalance
-        '
-        Me.LblBalance.AutoSize = True
-        Me.LblBalance.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.LblBalance.Font = New System.Drawing.Font("Segoe UI", 23.25!, System.Drawing.FontStyle.Bold)
-        Me.LblBalance.Location = New System.Drawing.Point(54, 49)
-        Me.LblBalance.Name = "LblBalance"
-        Me.LblBalance.Size = New System.Drawing.Size(98, 42)
-        Me.LblBalance.TabIndex = 5
-        Me.LblBalance.Text = "$0.00"
         '
         'TopPanel
         '
         Me.TopPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.TopPanel.Controls.Add(Me.LblTitle)
-        Me.TopPanel.Controls.Add(Me.LblBalance)
+        Me.TopPanel.Controls.Add(Me.Label1)
         Me.TopPanel.Dock = System.Windows.Forms.DockStyle.Top
         Me.TopPanel.Location = New System.Drawing.Point(0, 0)
         Me.TopPanel.Name = "TopPanel"
@@ -80,6 +56,16 @@ Partial Class PortfolioForm
         Me.Panel1.Size = New System.Drawing.Size(48, 490)
         Me.Panel1.TabIndex = 9
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold)
+        Me.Label1.Location = New System.Drawing.Point(58, 32)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(182, 37)
+        Me.Label1.TabIndex = 21
+        Me.Label1.Text = "My portfolio"
+        '
         'PortfolioForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
@@ -99,10 +85,8 @@ Partial Class PortfolioForm
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents LblTitle As Label
-    Friend WithEvents LblBalance As Label
     Friend WithEvents TopPanel As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents CoinsFlowPanel As FlowLayoutPanel
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label1 As Label
 End Class

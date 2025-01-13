@@ -38,9 +38,9 @@ Partial Class ConfirmationDialog
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.Label2.Location = New System.Drawing.Point(126, 33)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(334, 21)
+        Me.Label2.Size = New System.Drawing.Size(422, 21)
         Me.Label2.TabIndex = 19
-        Me.Label2.Text = "Are you sure you want to sign this transaction?"
+        Me.Label2.Text = "Are you sure you want to confirm and sign this transaction?"
         '
         'BtnYes
         '

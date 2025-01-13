@@ -45,6 +45,7 @@ Partial Class TokenControl
         Me.MainPanel.Controls.Add(Me.LblPrice)
         Me.MainPanel.Controls.Add(Me.LblName)
         Me.MainPanel.Controls.Add(Me.CoinImage)
+        Me.MainPanel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.MainPanel.FillColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
         Me.MainPanel.Location = New System.Drawing.Point(0, 0)
         Me.MainPanel.Name = "MainPanel"
@@ -55,6 +56,7 @@ Partial Class TokenControl
         '
         Me.LblTotalPrice.AutoEllipsis = True
         Me.LblTotalPrice.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.LblTotalPrice.Cursor = System.Windows.Forms.Cursors.Hand
         Me.LblTotalPrice.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblTotalPrice.ForeColor = System.Drawing.Color.FromArgb(CType(CType(188, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.LblTotalPrice.Location = New System.Drawing.Point(18, 117)
@@ -66,6 +68,7 @@ Partial Class TokenControl
         'LblQtySymbol
         '
         Me.LblQtySymbol.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.LblQtySymbol.Cursor = System.Windows.Forms.Cursors.Hand
         Me.LblQtySymbol.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblQtySymbol.Location = New System.Drawing.Point(18, 93)
         Me.LblQtySymbol.Name = "LblQtySymbol"
@@ -77,6 +80,7 @@ Partial Class TokenControl
         '
         Me.LblPrice.AutoEllipsis = True
         Me.LblPrice.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.LblPrice.Cursor = System.Windows.Forms.Cursors.Hand
         Me.LblPrice.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblPrice.ForeColor = System.Drawing.Color.FromArgb(CType(CType(188, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.LblPrice.Location = New System.Drawing.Point(76, 48)
@@ -88,6 +92,7 @@ Partial Class TokenControl
         'LblName
         '
         Me.LblName.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.LblName.Cursor = System.Windows.Forms.Cursors.Hand
         Me.LblName.Font = New System.Drawing.Font("Segoe UI Semibold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblName.Location = New System.Drawing.Point(75, 19)
         Me.LblName.Name = "LblName"
@@ -98,6 +103,7 @@ Partial Class TokenControl
         'CoinImage
         '
         Me.CoinImage.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.CoinImage.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CoinImage.FillColor = System.Drawing.Color.Empty
         Me.CoinImage.Image = Global.Bean.My.Resources.Resources.dogecoin64
         Me.CoinImage.ImageRotate = 0!

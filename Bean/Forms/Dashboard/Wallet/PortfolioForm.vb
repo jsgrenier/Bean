@@ -16,13 +16,14 @@ Public Class PortfolioForm
 
     Private Sub UpdateBalance(value As Decimal)
         Dim currentBalance As Decimal
-        If Decimal.TryParse(LblBalance.Text.Replace("$", "").Replace(",", ""), currentBalance) Then
-            currentBalance += value
-        Else
-            currentBalance = value
-        End If
+        'If Decimal.TryParse(LblBalance.Text.Replace("$", "").Replace(",", ""), currentBalance) Then
+        'currentBalance += value
+        'Else
+        currentBalance = value
+        'End If
 
-        LblBalance.Text = "$" & currentBalance.ToString("#,0.########")
+        CoinsFlowPanel.Controls.Add(New BalanceControl("$" & currentBalance.ToString("#,0.########")))
+        'LblBalance.Text = "$" & currentBalance.ToString("#,0.########")
     End Sub
 
 
@@ -43,9 +44,11 @@ Public Class PortfolioForm
             If tokenNamesToken.Type = JTokenType.Array Then
                 Dim tokenNameDict As Dictionary(Of String, String) = tokenNamesToken.ToObject(Of JArray)() _
                     .ToDictionary(Function(t) t("symbol").ToString(), Function(t) t("name").ToString())
-
+                CoinsFlowPanel.SuspendLayout()
                 Dim sortedTokens = tokensOwned.Properties().OrderBy(Function(p) p.Name)
                 Dim totalBalance As Decimal = 0
+                Dim balctrl As New BalanceControl(totalBalance)
+                CoinsFlowPanel.Controls.Add(balctrl)
 
                 For Each token In sortedTokens
                     Dim tokenAmount As Decimal = token.Value.ToObject(Of Decimal)()
@@ -67,10 +70,11 @@ Public Class PortfolioForm
                     coinItem.LblTotalPrice.Text = "$" & totalPrice.ToString("#,0.########")
 
                     CoinsFlowPanel.Controls.Add(coinItem)
+                    balctrl.UpdateBalance(totalBalance)
                 Next
-
+                CoinsFlowPanel.ResumeLayout()
                 ' Update the overall balance
-                UpdateBalance(totalBalance)
+                'UpdateBalance(totalBalance)
             Else
                 Throw New Exception("API response for /get_token_names is not a valid array.")
             End If
