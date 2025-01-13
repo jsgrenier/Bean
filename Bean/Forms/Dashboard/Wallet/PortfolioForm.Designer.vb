@@ -35,7 +35,7 @@ Partial Class PortfolioForm
         Me.LblTitle.AutoSize = True
         Me.LblTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.LblTitle.Font = New System.Drawing.Font("Segoe UI Semibold", 20.25!, System.Drawing.FontStyle.Bold)
-        Me.LblTitle.Location = New System.Drawing.Point(58, 11)
+        Me.LblTitle.Location = New System.Drawing.Point(58, 9)
         Me.LblTitle.Name = "LblTitle"
         Me.LblTitle.Size = New System.Drawing.Size(157, 37)
         Me.LblTitle.TabIndex = 4
@@ -46,7 +46,7 @@ Partial Class PortfolioForm
         Me.LblBalance.AutoSize = True
         Me.LblBalance.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.LblBalance.Font = New System.Drawing.Font("Segoe UI", 23.25!, System.Drawing.FontStyle.Bold)
-        Me.LblBalance.Location = New System.Drawing.Point(54, 47)
+        Me.LblBalance.Location = New System.Drawing.Point(54, 49)
         Me.LblBalance.Name = "LblBalance"
         Me.LblBalance.Size = New System.Drawing.Size(98, 42)
         Me.LblBalance.TabIndex = 5

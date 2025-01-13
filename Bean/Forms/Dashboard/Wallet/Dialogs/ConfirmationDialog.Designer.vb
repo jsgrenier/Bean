@@ -35,7 +35,7 @@ Partial Class ConfirmationDialog
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.Label2.Location = New System.Drawing.Point(126, 33)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(334, 21)
@@ -105,7 +105,7 @@ Partial Class ConfirmationDialog
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Label1.Location = New System.Drawing.Point(126, 61)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(229, 21)

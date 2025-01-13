@@ -23,7 +23,7 @@ Partial Class PasswordForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim Animation1 As Guna.UI2.AnimatorNS.Animation = New Guna.UI2.AnimatorNS.Animation()
+        Dim Animation8 As Guna.UI2.AnimatorNS.Animation = New Guna.UI2.AnimatorNS.Animation()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PasswordForm))
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TBPassword = New Guna.UI2.WinForms.Guna2TextBox()
@@ -39,12 +39,12 @@ Partial Class PasswordForm
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.Guna2Transition1.SetDecoration(Me.Label2, Guna.UI2.AnimatorNS.DecorationType.None)
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(135, 49)
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.Label2.Location = New System.Drawing.Point(126, 54)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(424, 30)
+        Me.Label2.Size = New System.Drawing.Size(302, 21)
         Me.Label2.TabIndex = 18
-        Me.Label2.Text = "Insert your password to unlock your wallet"
+        Me.Label2.Text = "Enter your password to unlock your wallet"
         '
         'TBPassword
         '
@@ -63,13 +63,13 @@ Partial Class PasswordForm
         Me.TBPassword.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.TBPassword.ForeColor = System.Drawing.Color.White
         Me.TBPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer))
-        Me.TBPassword.Location = New System.Drawing.Point(140, 114)
+        Me.TBPassword.Location = New System.Drawing.Point(60, 126)
         Me.TBPassword.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TBPassword.Name = "TBPassword"
         Me.TBPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.TBPassword.PlaceholderText = ""
         Me.TBPassword.SelectedText = ""
-        Me.TBPassword.Size = New System.Drawing.Size(419, 45)
+        Me.TBPassword.Size = New System.Drawing.Size(403, 45)
         Me.TBPassword.TabIndex = 0
         Me.TBPassword.TextOffset = New System.Drawing.Point(10, 0)
         Me.TBPassword.UseSystemPasswordChar = True
@@ -91,7 +91,7 @@ Partial Class PasswordForm
         Me.BtnUnlock.ForeColor = System.Drawing.Color.White
         Me.BtnUnlock.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer))
         Me.BtnUnlock.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(41, Byte), Integer))
-        Me.BtnUnlock.Location = New System.Drawing.Point(241, 189)
+        Me.BtnUnlock.Location = New System.Drawing.Point(203, 202)
         Me.BtnUnlock.Name = "BtnUnlock"
         Me.BtnUnlock.PressedDepth = 10
         Me.BtnUnlock.Size = New System.Drawing.Size(117, 45)
@@ -102,22 +102,22 @@ Partial Class PasswordForm
         '
         Me.Guna2Transition1.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Transparent
         Me.Guna2Transition1.Cursor = Nothing
-        Animation1.AnimateOnlyDifferences = True
-        Animation1.BlindCoeff = CType(resources.GetObject("Animation1.BlindCoeff"), System.Drawing.PointF)
-        Animation1.LeafCoeff = 0!
-        Animation1.MaxTime = 1.0!
-        Animation1.MinTime = 0!
-        Animation1.MosaicCoeff = CType(resources.GetObject("Animation1.MosaicCoeff"), System.Drawing.PointF)
-        Animation1.MosaicShift = CType(resources.GetObject("Animation1.MosaicShift"), System.Drawing.PointF)
-        Animation1.MosaicSize = 0
-        Animation1.Padding = New System.Windows.Forms.Padding(0)
-        Animation1.RotateCoeff = 0!
-        Animation1.RotateLimit = 0!
-        Animation1.ScaleCoeff = CType(resources.GetObject("Animation1.ScaleCoeff"), System.Drawing.PointF)
-        Animation1.SlideCoeff = CType(resources.GetObject("Animation1.SlideCoeff"), System.Drawing.PointF)
-        Animation1.TimeCoeff = 0!
-        Animation1.TransparencyCoeff = 1.0!
-        Me.Guna2Transition1.DefaultAnimation = Animation1
+        Animation8.AnimateOnlyDifferences = True
+        Animation8.BlindCoeff = CType(resources.GetObject("Animation8.BlindCoeff"), System.Drawing.PointF)
+        Animation8.LeafCoeff = 0!
+        Animation8.MaxTime = 1.0!
+        Animation8.MinTime = 0!
+        Animation8.MosaicCoeff = CType(resources.GetObject("Animation8.MosaicCoeff"), System.Drawing.PointF)
+        Animation8.MosaicShift = CType(resources.GetObject("Animation8.MosaicShift"), System.Drawing.PointF)
+        Animation8.MosaicSize = 0
+        Animation8.Padding = New System.Windows.Forms.Padding(0)
+        Animation8.RotateCoeff = 0!
+        Animation8.RotateLimit = 0!
+        Animation8.ScaleCoeff = CType(resources.GetObject("Animation8.ScaleCoeff"), System.Drawing.PointF)
+        Animation8.SlideCoeff = CType(resources.GetObject("Animation8.SlideCoeff"), System.Drawing.PointF)
+        Animation8.TimeCoeff = 0!
+        Animation8.TransparencyCoeff = 1.0!
+        Me.Guna2Transition1.DefaultAnimation = Animation8
         '
         'Guna2PictureBox1
         '
@@ -138,7 +138,7 @@ Partial Class PasswordForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(598, 265)
+        Me.ClientSize = New System.Drawing.Size(522, 273)
         Me.Controls.Add(Me.Guna2PictureBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TBPassword)
