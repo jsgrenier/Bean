@@ -75,4 +75,9 @@
             OpenContentPanel(New SwapTokensForm(_privateKey))
         End If
     End Sub
+
+    Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles BtnLogout.Click
+        MainForm.OpenMainPanel(New LoginForm)
+        MainForm.WindowState = FormWindowState.Normal
+    End Sub
 End Class

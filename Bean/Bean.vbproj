@@ -446,6 +446,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bean_icon.ico" />
+    <None Include="Resources\logout_gray.png" />
+    <None Include="Resources\logout_hover.png" />
+    <None Include="Resources\logout_white.png" />
+    <None Include="Resources\eject_gray.png" />
+    <None Include="Resources\eject_hover.png" />
+    <None Include="Resources\eject_white.png" />
     <None Include="Resources\token_icon.png" />
     <None Include="Resources\swap2_gray.png" />
     <None Include="Resources\swap2_hover.png" />

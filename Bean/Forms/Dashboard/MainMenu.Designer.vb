@@ -34,14 +34,17 @@ Partial Class MainMenu
         Me.BtnSwap = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnContracts = New Guna.UI2.WinForms.Guna2Button()
         Me.TopLeftPanel = New Guna.UI2.WinForms.Guna2Panel()
-        Me.PBLogo = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.StartingTimer = New System.Windows.Forms.Timer(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.BtnLogout = New Guna.UI2.WinForms.Guna2Button()
+        Me.PBLogo = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.MainPanel.SuspendLayout()
         Me.TopPanel.SuspendLayout()
         Me.LeftPanel.SuspendLayout()
         Me.FlowMenu.SuspendLayout()
         Me.TopLeftPanel.SuspendLayout()
+        Me.Guna2Panel1.SuspendLayout()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -97,6 +100,7 @@ Partial Class MainMenu
         '
         'LeftPanel
         '
+        Me.LeftPanel.Controls.Add(Me.Guna2Panel1)
         Me.LeftPanel.Controls.Add(Me.FlowMenu)
         Me.LeftPanel.Controls.Add(Me.TopLeftPanel)
         Me.LeftPanel.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer))
@@ -279,6 +283,58 @@ Partial Class MainMenu
         Me.TopLeftPanel.Size = New System.Drawing.Size(185, 140)
         Me.TopLeftPanel.TabIndex = 2
         '
+        'StartingTimer
+        '
+        Me.StartingTimer.Interval = 1000
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1000
+        '
+        'Guna2Panel1
+        '
+        Me.Guna2Panel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Guna2Panel1.Controls.Add(Me.BtnLogout)
+        Me.Guna2Panel1.FillColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.Guna2Panel1.Location = New System.Drawing.Point(0, 671)
+        Me.Guna2Panel1.Name = "Guna2Panel1"
+        Me.Guna2Panel1.Size = New System.Drawing.Size(184, 58)
+        Me.Guna2Panel1.TabIndex = 4
+        '
+        'BtnLogout
+        '
+        Me.BtnLogout.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.BtnLogout.BorderColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.BtnLogout.BorderRadius = 10
+        Me.BtnLogout.BorderThickness = 1
+        Me.BtnLogout.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer))
+        Me.BtnLogout.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.BtnLogout.CheckedState.ForeColor = System.Drawing.Color.White
+        Me.BtnLogout.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnLogout.CustomImages.HoveredImage = Global.Bean.My.Resources.Resources.logout_hover
+        Me.BtnLogout.CustomImages.Image = Global.Bean.My.Resources.Resources.logout_gray
+        Me.BtnLogout.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.BtnLogout.CustomImages.ImageOffset = New System.Drawing.Point(2, 0)
+        Me.BtnLogout.CustomImages.ImageSize = New System.Drawing.Size(24, 24)
+        Me.BtnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnLogout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.BtnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.BtnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.BtnLogout.FillColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.BtnLogout.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnLogout.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.BtnLogout.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(36, Byte), Integer))
+        Me.BtnLogout.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.BtnLogout.HoverState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(188, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BtnLogout.Location = New System.Drawing.Point(69, 7)
+        Me.BtnLogout.Margin = New System.Windows.Forms.Padding(15, 10, 0, 0)
+        Me.BtnLogout.Name = "BtnLogout"
+        Me.BtnLogout.PressedDepth = 0
+        Me.BtnLogout.Size = New System.Drawing.Size(45, 45)
+        Me.BtnLogout.TabIndex = 5
+        Me.BtnLogout.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.BtnLogout.TextOffset = New System.Drawing.Point(30, 0)
+        '
         'PBLogo
         '
         Me.PBLogo.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
@@ -291,14 +347,6 @@ Partial Class MainMenu
         Me.PBLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PBLogo.TabIndex = 1
         Me.PBLogo.TabStop = False
-        '
-        'StartingTimer
-        '
-        Me.StartingTimer.Interval = 1000
-        '
-        'Timer1
-        '
-        Me.Timer1.Interval = 1000
         '
         'MainMenu
         '
@@ -316,6 +364,7 @@ Partial Class MainMenu
         Me.LeftPanel.ResumeLayout(False)
         Me.FlowMenu.ResumeLayout(False)
         Me.TopLeftPanel.ResumeLayout(False)
+        Me.Guna2Panel1.ResumeLayout(False)
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -335,4 +384,6 @@ Partial Class MainMenu
     Friend WithEvents BtnContracts As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Timer1 As Timer
     Friend WithEvents BtnSwap As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents BtnLogout As Guna.UI2.WinForms.Guna2Button
 End Class
