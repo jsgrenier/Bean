@@ -1,7 +1,7 @@
 ﻿Public Class CreateWalletForm
     Private Sub BtnGenerate_MouseClick(sender As Object, e As MouseEventArgs) Handles BtnGenerate.MouseClick
         If e.Button = MouseButtons.Left Then
-            Dim walletInfo As Tuple(Of String, String) = WalletHandler.GenerateWallet(TBPassword.Text)
+            Dim walletInfo As Tuple(Of String, String) = WalletHandler.GenerateWallet()
             Dim publicKey As String = walletInfo.Item1
             Dim privateKey As String = walletInfo.Item2
 
@@ -37,11 +37,8 @@
             Dim filePath As String = saveFileDialog.FileName
 
             ' Save the wallet to the chosen file path
-            If WalletHandler.SaveWalletToFile(TBPrivateAddress.Text, filePath, TBPassword.Text) Then
-                MessageBox.Show("Wallet created and saved successfully!")
-            Else
-                MessageBox.Show("Error saving wallet to file.")
-            End If
+            WalletHandler.SaveWalletToFile(TBPrivateAddress.Text, filePath, TBPassword.Text)
+            MessageBox.Show("Wallet created and saved successfully!")
         End If
     End Sub
 

@@ -23,7 +23,7 @@ Partial Class PasswordForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim Animation8 As Guna.UI2.AnimatorNS.Animation = New Guna.UI2.AnimatorNS.Animation()
+        Dim Animation1 As Guna.UI2.AnimatorNS.Animation = New Guna.UI2.AnimatorNS.Animation()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PasswordForm))
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TBPassword = New Guna.UI2.WinForms.Guna2TextBox()
@@ -102,22 +102,22 @@ Partial Class PasswordForm
         '
         Me.Guna2Transition1.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Transparent
         Me.Guna2Transition1.Cursor = Nothing
-        Animation8.AnimateOnlyDifferences = True
-        Animation8.BlindCoeff = CType(resources.GetObject("Animation8.BlindCoeff"), System.Drawing.PointF)
-        Animation8.LeafCoeff = 0!
-        Animation8.MaxTime = 1.0!
-        Animation8.MinTime = 0!
-        Animation8.MosaicCoeff = CType(resources.GetObject("Animation8.MosaicCoeff"), System.Drawing.PointF)
-        Animation8.MosaicShift = CType(resources.GetObject("Animation8.MosaicShift"), System.Drawing.PointF)
-        Animation8.MosaicSize = 0
-        Animation8.Padding = New System.Windows.Forms.Padding(0)
-        Animation8.RotateCoeff = 0!
-        Animation8.RotateLimit = 0!
-        Animation8.ScaleCoeff = CType(resources.GetObject("Animation8.ScaleCoeff"), System.Drawing.PointF)
-        Animation8.SlideCoeff = CType(resources.GetObject("Animation8.SlideCoeff"), System.Drawing.PointF)
-        Animation8.TimeCoeff = 0!
-        Animation8.TransparencyCoeff = 1.0!
-        Me.Guna2Transition1.DefaultAnimation = Animation8
+        Animation1.AnimateOnlyDifferences = True
+        Animation1.BlindCoeff = CType(resources.GetObject("Animation1.BlindCoeff"), System.Drawing.PointF)
+        Animation1.LeafCoeff = 0!
+        Animation1.MaxTime = 1.0!
+        Animation1.MinTime = 0!
+        Animation1.MosaicCoeff = CType(resources.GetObject("Animation1.MosaicCoeff"), System.Drawing.PointF)
+        Animation1.MosaicShift = CType(resources.GetObject("Animation1.MosaicShift"), System.Drawing.PointF)
+        Animation1.MosaicSize = 0
+        Animation1.Padding = New System.Windows.Forms.Padding(0)
+        Animation1.RotateCoeff = 0!
+        Animation1.RotateLimit = 0!
+        Animation1.ScaleCoeff = CType(resources.GetObject("Animation1.ScaleCoeff"), System.Drawing.PointF)
+        Animation1.SlideCoeff = CType(resources.GetObject("Animation1.SlideCoeff"), System.Drawing.PointF)
+        Animation1.TimeCoeff = 0!
+        Animation1.TransparencyCoeff = 1.0!
+        Me.Guna2Transition1.DefaultAnimation = Animation1
         '
         'Guna2PictureBox1
         '

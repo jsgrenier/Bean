@@ -27,9 +27,9 @@ Partial Class LoginForm
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(LoginForm))
         Me.LoginPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.BtnCreate = New Guna.UI2.WinForms.Guna2Button()
+        Me.BtnCreateWallet = New Guna.UI2.WinForms.Guna2Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
+        Me.BtnImportWallet = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.Guna2Transition1 = New Guna.UI2.WinForms.Guna2Transition()
@@ -47,9 +47,9 @@ Partial Class LoginForm
         Me.LoginPanel.BorderRadius = 10
         Me.LoginPanel.BorderThickness = 1
         Me.LoginPanel.Controls.Add(Me.Label2)
-        Me.LoginPanel.Controls.Add(Me.BtnCreate)
+        Me.LoginPanel.Controls.Add(Me.BtnCreateWallet)
         Me.LoginPanel.Controls.Add(Me.Label1)
-        Me.LoginPanel.Controls.Add(Me.Guna2Button1)
+        Me.LoginPanel.Controls.Add(Me.BtnImportWallet)
         Me.LoginPanel.Controls.Add(Me.Guna2Separator1)
         Me.LoginPanel.Controls.Add(Me.Guna2PictureBox1)
         Me.Guna2Transition1.SetDecoration(Me.LoginPanel, Guna.UI2.AnimatorNS.DecorationType.None)
@@ -72,29 +72,29 @@ Partial Class LoginForm
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Or"
         '
-        'BtnCreate
+        'BtnCreateWallet
         '
-        Me.BtnCreate.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
-        Me.BtnCreate.BorderColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer))
-        Me.BtnCreate.BorderRadius = 10
-        Me.BtnCreate.BorderThickness = 1
-        Me.BtnCreate.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Guna2Transition1.SetDecoration(Me.BtnCreate, Guna.UI2.AnimatorNS.DecorationType.None)
-        Me.BtnCreate.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.BtnCreate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.BtnCreate.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.BtnCreate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.BtnCreate.FillColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.BtnCreate.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCreate.ForeColor = System.Drawing.Color.White
-        Me.BtnCreate.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer))
-        Me.BtnCreate.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(41, Byte), Integer))
-        Me.BtnCreate.Location = New System.Drawing.Point(54, 412)
-        Me.BtnCreate.Name = "BtnCreate"
-        Me.BtnCreate.PressedDepth = 10
-        Me.BtnCreate.Size = New System.Drawing.Size(378, 45)
-        Me.BtnCreate.TabIndex = 4
-        Me.BtnCreate.Text = "Create a new wallet"
+        Me.BtnCreateWallet.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.BtnCreateWallet.BorderColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer))
+        Me.BtnCreateWallet.BorderRadius = 10
+        Me.BtnCreateWallet.BorderThickness = 1
+        Me.BtnCreateWallet.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Guna2Transition1.SetDecoration(Me.BtnCreateWallet, Guna.UI2.AnimatorNS.DecorationType.None)
+        Me.BtnCreateWallet.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnCreateWallet.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.BtnCreateWallet.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.BtnCreateWallet.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.BtnCreateWallet.FillColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.BtnCreateWallet.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCreateWallet.ForeColor = System.Drawing.Color.White
+        Me.BtnCreateWallet.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer))
+        Me.BtnCreateWallet.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(41, Byte), Integer))
+        Me.BtnCreateWallet.Location = New System.Drawing.Point(54, 412)
+        Me.BtnCreateWallet.Name = "BtnCreateWallet"
+        Me.BtnCreateWallet.PressedDepth = 10
+        Me.BtnCreateWallet.Size = New System.Drawing.Size(378, 45)
+        Me.BtnCreateWallet.TabIndex = 4
+        Me.BtnCreateWallet.Text = "Create a new wallet"
         '
         'Label1
         '
@@ -104,33 +104,33 @@ Partial Class LoginForm
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(141, 209)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(205, 32)
+        Me.Label1.Size = New System.Drawing.Size(204, 32)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Choose an option"
         '
-        'Guna2Button1
+        'BtnImportWallet
         '
-        Me.Guna2Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
-        Me.Guna2Button1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer))
-        Me.Guna2Button1.BorderRadius = 10
-        Me.Guna2Button1.BorderThickness = 1
-        Me.Guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Guna2Transition1.SetDecoration(Me.Guna2Button1, Guna.UI2.AnimatorNS.DecorationType.None)
-        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Guna2Button1.FillColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer))
-        Me.Guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(41, Byte), Integer))
-        Me.Guna2Button1.Location = New System.Drawing.Point(54, 280)
-        Me.Guna2Button1.Name = "Guna2Button1"
-        Me.Guna2Button1.PressedDepth = 10
-        Me.Guna2Button1.Size = New System.Drawing.Size(378, 45)
-        Me.Guna2Button1.TabIndex = 2
-        Me.Guna2Button1.Text = "Import your wallet"
+        Me.BtnImportWallet.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.BtnImportWallet.BorderColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer))
+        Me.BtnImportWallet.BorderRadius = 10
+        Me.BtnImportWallet.BorderThickness = 1
+        Me.BtnImportWallet.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Guna2Transition1.SetDecoration(Me.BtnImportWallet, Guna.UI2.AnimatorNS.DecorationType.None)
+        Me.BtnImportWallet.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnImportWallet.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.BtnImportWallet.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.BtnImportWallet.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.BtnImportWallet.FillColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.BtnImportWallet.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnImportWallet.ForeColor = System.Drawing.Color.White
+        Me.BtnImportWallet.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer))
+        Me.BtnImportWallet.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(41, Byte), Integer))
+        Me.BtnImportWallet.Location = New System.Drawing.Point(54, 280)
+        Me.BtnImportWallet.Name = "BtnImportWallet"
+        Me.BtnImportWallet.PressedDepth = 10
+        Me.BtnImportWallet.Size = New System.Drawing.Size(378, 45)
+        Me.BtnImportWallet.TabIndex = 2
+        Me.BtnImportWallet.Text = "Import your wallet"
         '
         'Guna2Separator1
         '
@@ -205,10 +205,10 @@ Partial Class LoginForm
     Friend WithEvents LoginPanel As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
-    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents BtnImportWallet As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents BtnCreate As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents BtnCreateWallet As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Transition1 As Guna.UI2.WinForms.Guna2Transition
     Friend WithEvents StartingTimer As Timer
 End Class

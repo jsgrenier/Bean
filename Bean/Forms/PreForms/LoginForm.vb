@@ -8,13 +8,13 @@
         StartingTimer.Start()
     End Sub
 
-    Private Sub Guna2Button2_MouseClick(sender As Object, e As MouseEventArgs) Handles BtnCreate.MouseClick
+    Private Sub BtnCreateWallet_MouseClick(sender As Object, e As MouseEventArgs) Handles BtnCreateWallet.MouseClick
         If e.Button = MouseButtons.Left Then
             MainForm.OpenMainPanel(New CreateWalletForm)
         End If
     End Sub
 
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+    Private Sub BtnImportWallet_Click(sender As Object, e As EventArgs) Handles BtnImportWallet.Click
         Dim openFileDialog As New OpenFileDialog()
         openFileDialog.Filter = "Wallet Files (*.dat)|*.dat|All files (*.*)|*.*"
         openFileDialog.Title = "Select Wallet File"
