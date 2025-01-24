@@ -467,6 +467,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bean_icon.ico" />
+    <None Include="Resources\history_white.png" />
+    <None Include="Resources\history_gray.png" />
     <None Include="Resources\DownArrow_gray.png" />
     <None Include="Resources\DownArrow_white.png" />
     <None Include="Resources\UpArrow_white.png" />

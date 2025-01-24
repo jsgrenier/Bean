@@ -30,6 +30,7 @@ Partial Class PortfolioForm
         Me.LoadingTimer = New System.Windows.Forms.Timer(Me.components)
         Me.HistoryPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.TopHistoryPanel = New Guna.UI2.WinForms.Guna2Panel()
+        Me.PBHistory = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.PBArrow = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.LblLatest = New System.Windows.Forms.Label()
         Me.HistoryFlow = New System.Windows.Forms.FlowLayoutPanel()
@@ -38,6 +39,7 @@ Partial Class PortfolioForm
         Me.TopPanel.SuspendLayout()
         Me.HistoryPanel.SuspendLayout()
         Me.TopHistoryPanel.SuspendLayout()
+        CType(Me.PBHistory, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBArrow, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -100,6 +102,7 @@ Partial Class PortfolioForm
         'TopHistoryPanel
         '
         Me.TopHistoryPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.TopHistoryPanel.Controls.Add(Me.PBHistory)
         Me.TopHistoryPanel.Controls.Add(Me.PBArrow)
         Me.TopHistoryPanel.Controls.Add(Me.LblLatest)
         Me.TopHistoryPanel.Cursor = System.Windows.Forms.Cursors.Hand
@@ -110,6 +113,19 @@ Partial Class PortfolioForm
         Me.TopHistoryPanel.Name = "TopHistoryPanel"
         Me.TopHistoryPanel.Size = New System.Drawing.Size(1015, 37)
         Me.TopHistoryPanel.TabIndex = 29
+        '
+        'PBHistory
+        '
+        Me.PBHistory.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PBHistory.FillColor = System.Drawing.Color.Empty
+        Me.PBHistory.Image = Global.Bean.My.Resources.Resources.history_gray
+        Me.PBHistory.ImageRotate = 0!
+        Me.PBHistory.Location = New System.Drawing.Point(19, 10)
+        Me.PBHistory.Name = "PBHistory"
+        Me.PBHistory.Size = New System.Drawing.Size(18, 18)
+        Me.PBHistory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PBHistory.TabIndex = 29
+        Me.PBHistory.TabStop = False
         '
         'PBArrow
         '
@@ -164,16 +180,15 @@ Partial Class PortfolioForm
         '
         'BottomBar1
         '
-        Me.BottomBar1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.BottomBar1.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
         Me.BottomBar1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.BottomBar1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BottomBar1.ForeColor = System.Drawing.Color.White
         Me.BottomBar1.Location = New System.Drawing.Point(0, 553)
         Me.BottomBar1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.BottomBar1.MinimumSize = New System.Drawing.Size(800, 0)
         Me.BottomBar1.Name = "BottomBar1"
         Me.BottomBar1.Size = New System.Drawing.Size(1015, 37)
-        Me.BottomBar1.TabIndex = 23
+        Me.BottomBar1.TabIndex = 12
         '
         'PortfolioForm
         '
@@ -197,6 +212,7 @@ Partial Class PortfolioForm
         Me.HistoryPanel.ResumeLayout(False)
         Me.TopHistoryPanel.ResumeLayout(False)
         Me.TopHistoryPanel.PerformLayout()
+        CType(Me.PBHistory, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PBArrow, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -210,7 +226,8 @@ Partial Class PortfolioForm
     Friend WithEvents HistoryPanel As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents LblLatest As Label
     Friend WithEvents HistoryFlow As FlowLayoutPanel
-    Friend WithEvents BottomBar1 As BottomBar
     Friend WithEvents TopHistoryPanel As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents PBArrow As Guna.UI2.WinForms.Guna2PictureBox
+    Friend WithEvents BottomBar1 As BottomBar
+    Friend WithEvents PBHistory As Guna.UI2.WinForms.Guna2PictureBox
 End Class

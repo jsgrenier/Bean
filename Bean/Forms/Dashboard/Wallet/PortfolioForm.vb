@@ -291,23 +291,27 @@ Public Class PortfolioForm
         AdjustListControlWidths()
     End Sub
 
-    Private Sub TopHistoryPanel_MouseEnter(sender As Object, e As EventArgs) Handles TopHistoryPanel.MouseEnter, PBArrow.MouseEnter, LblLatest.MouseEnter
+    Private Sub TopHistoryPanel_MouseEnter(sender As Object, e As EventArgs) Handles TopHistoryPanel.MouseEnter, PBArrow.MouseEnter, LblLatest.MouseEnter, PBHistory.MouseEnter
         TopHistoryPanel.FillColor = Color.FromArgb(26, 26, 31)
         LblLatest.BackColor = Color.FromArgb(26, 26, 31)
         LblLatest.ForeColor = Color.White
         PBArrow.BackColor = Color.FromArgb(26, 26, 31)
         PBArrow.Image = My.Resources.DownArrow_white
+        PBHistory.BackColor = Color.FromArgb(26, 26, 31)
+        PBHistory.Image = My.Resources.history_white
     End Sub
 
-    Private Sub TopHistoryPanel_MouseLeave(sender As Object, e As EventArgs) Handles TopHistoryPanel.MouseLeave, PBArrow.MouseLeave, LblLatest.MouseLeave
+    Private Sub TopHistoryPanel_MouseLeave(sender As Object, e As EventArgs) Handles TopHistoryPanel.MouseLeave, PBArrow.MouseLeave, LblLatest.MouseLeave, PBHistory.MouseLeave
         TopHistoryPanel.FillColor = Color.FromArgb(23, 24, 28)
         LblLatest.BackColor = Color.FromArgb(23, 24, 28)
         LblLatest.ForeColor = Color.FromArgb(188, 188, 192)
         PBArrow.BackColor = Color.FromArgb(23, 24, 28)
         PBArrow.Image = My.Resources.DownArrow_gray
+        PBHistory.BackColor = Color.FromArgb(23, 24, 28)
+        PBHistory.Image = My.Resources.history_gray
     End Sub
 
-    Private Sub TopHistoryPanel_MouseClick(sender As Object, e As MouseEventArgs) Handles TopHistoryPanel.MouseClick, PBArrow.MouseClick, LblLatest.MouseClick
+    Private Sub TopHistoryPanel_MouseClick(sender As Object, e As MouseEventArgs) Handles TopHistoryPanel.MouseClick, PBArrow.MouseClick, LblLatest.MouseClick, PBHistory.MouseClick
         HistoryPanel.Visible = False
         BottomBar1.Visible = True
     End Sub

@@ -23,14 +23,17 @@ Partial Class BottomBar
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.MainPanel = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PBHistory = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.PBArrow = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.MainPanel.SuspendLayout()
+        CType(Me.PBHistory, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBArrow, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MainPanel
         '
+        Me.MainPanel.Controls.Add(Me.PBHistory)
         Me.MainPanel.Controls.Add(Me.PBArrow)
         Me.MainPanel.Controls.Add(Me.Label1)
         Me.MainPanel.Cursor = System.Windows.Forms.Cursors.Hand
@@ -44,17 +47,18 @@ Partial Class BottomBar
         Me.MainPanel.Size = New System.Drawing.Size(1015, 37)
         Me.MainPanel.TabIndex = 0
         '
-        'Label1
+        'PBHistory
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(188, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(47, 8)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(134, 20)
-        Me.Label1.TabIndex = 26
-        Me.Label1.Text = "Latest transactions"
+        Me.PBHistory.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PBHistory.FillColor = System.Drawing.Color.Empty
+        Me.PBHistory.Image = Global.Bean.My.Resources.Resources.history_gray
+        Me.PBHistory.ImageRotate = 0!
+        Me.PBHistory.Location = New System.Drawing.Point(19, 10)
+        Me.PBHistory.Name = "PBHistory"
+        Me.PBHistory.Size = New System.Drawing.Size(18, 18)
+        Me.PBHistory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PBHistory.TabIndex = 30
+        Me.PBHistory.TabStop = False
         '
         'PBArrow
         '
@@ -69,6 +73,18 @@ Partial Class BottomBar
         Me.PBArrow.TabIndex = 27
         Me.PBArrow.TabStop = False
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(188, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(47, 8)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(134, 20)
+        Me.Label1.TabIndex = 26
+        Me.Label1.Text = "Latest transactions"
+        '
         'BottomBar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
@@ -82,6 +98,7 @@ Partial Class BottomBar
         Me.Size = New System.Drawing.Size(1015, 37)
         Me.MainPanel.ResumeLayout(False)
         Me.MainPanel.PerformLayout()
+        CType(Me.PBHistory, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PBArrow, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -90,4 +107,5 @@ Partial Class BottomBar
     Friend WithEvents MainPanel As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents PBArrow As Guna.UI2.WinForms.Guna2PictureBox
+    Friend WithEvents PBHistory As Guna.UI2.WinForms.Guna2PictureBox
 End Class
