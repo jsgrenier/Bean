@@ -186,6 +186,7 @@ Partial Class PortfolioForm
         Me.BottomBar1.ForeColor = System.Drawing.Color.White
         Me.BottomBar1.Location = New System.Drawing.Point(0, 553)
         Me.BottomBar1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.BottomBar1.MinimumSize = New System.Drawing.Size(800, 0)
         Me.BottomBar1.Name = "BottomBar1"
         Me.BottomBar1.Size = New System.Drawing.Size(1015, 37)
         Me.BottomBar1.TabIndex = 12
