@@ -203,6 +203,26 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property DownArrow_gray() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("DownArrow_gray", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property DownArrow_white() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("DownArrow_white", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property eject_gray() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("eject_gray", resourceCulture)
@@ -516,6 +536,26 @@ Namespace My.Resources
         Friend ReadOnly Property token_icon() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("token_icon", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property UpArrow_gray() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("UpArrow_gray", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property UpArrow_white() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("UpArrow_white", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

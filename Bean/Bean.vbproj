@@ -157,6 +157,18 @@
     <Compile Include="Forms\Dashboard\Wallet\Controls\BalanceControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Forms\Dashboard\Wallet\Controls\BottomBar.Designer.vb">
+      <DependentUpon>BottomBar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Wallet\Controls\BottomBar.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Wallet\Controls\HistoryControl.Designer.vb">
+      <DependentUpon>HistoryControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Wallet\Controls\HistoryControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Forms\Dashboard\Wallet\Controls\TokenControl.Designer.vb">
       <DependentUpon>TokenControl.vb</DependentUpon>
     </Compile>
@@ -276,6 +288,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard\Wallet\Controls\BalanceControl.resx">
       <DependentUpon>BalanceControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Wallet\Controls\BottomBar.resx">
+      <DependentUpon>BottomBar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Wallet\Controls\HistoryControl.resx">
+      <DependentUpon>HistoryControl.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard\Wallet\Controls\TokenControl.resx">
       <DependentUpon>TokenControl.vb</DependentUpon>
@@ -449,6 +467,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bean_icon.ico" />
+    <None Include="Resources\DownArrow_gray.png" />
+    <None Include="Resources\DownArrow_white.png" />
+    <None Include="Resources\UpArrow_white.png" />
+    <None Include="Resources\UpArrow_gray.png" />
     <None Include="Resources\logout_gray.png" />
     <None Include="Resources\logout_hover.png" />
     <None Include="Resources\logout_white.png" />

@@ -12,6 +12,7 @@ Public Class PortfolioForm
     Public Sub New(privatekey As String)
         InitializeComponent()
         DisplayTokensOwnedAsync(WalletHandler.GetPublicKeyFromPrivateKey(privatekey))
+        DisplayTransactionHistory(WalletHandler.GetPublicKeyFromPrivateKey(privatekey))
     End Sub
 
     Private Sub UpdateBalance(value As Decimal)
@@ -25,6 +26,8 @@ Public Class PortfolioForm
         LoadingControl1.Stop()
         LoadingControl1.Visible = False
         CoinsFlowPanel.Visible = True
+        'HistoryPanel.Visible = True
+        'AdjustListControlWidths()
     End Sub
 
 
@@ -194,7 +197,12 @@ Public Class PortfolioForm
         End Try
     End Sub
 
-
+    Private Sub AdjustListControlWidths()
+        Dim widthAdjustment As Integer = If(HistoryFlow.VerticalScroll.Visible, 17, 0)
+        For Each control As HistoryControl In HistoryFlow.Controls
+            control.Width = HistoryFlow.Width - widthAdjustment
+        Next
+    End Sub
 
 
     Public Class CoinInfo
@@ -202,5 +210,105 @@ Public Class PortfolioForm
         Public Property CoinPrice As String
     End Class
 
+    Private Async Sub DisplayTransactionHistory(address As String)
+        ' Clear the existing controls
+        HistoryFlow.Controls.Clear()
 
+        Try
+            ' Encode the address before making the API call
+            Dim encodedAddress As String = WebUtility.UrlEncode(address)
+
+            ' Use the APIClient to make the GET request
+            Dim jsonObject As JObject = Await _apiClient.GettAsync("/get_transaction_history", New Dictionary(Of String, String) From {{"address", encodedAddress}})
+
+            Dim transactions As JArray = jsonObject("transactions")
+
+            ' Sort history items by timestamp in descending order (most recent first)
+            Dim sortedTransactions = transactions.OrderByDescending(Function(t) t("Timestamp")).ToList()
+
+            ' Add sorted history items to the HistoryFlowPanel as CoinItem controls
+            Dim transactionCount As Integer = 0
+
+            For Each transaction In sortedTransactions
+                If transactionCount >= 10 Then
+                    Exit For
+                End If
+
+                Dim timestampValue = transaction("Timestamp")?.ToString()
+                Dim amountValue = transaction("Amount")?.ToString()
+                Dim hashValue = transaction("Hash")?.ToString()
+                Dim txIdValue = transaction("TxId")?.ToString()
+                Dim typeValue = transaction("Type")?.ToString()
+
+                If timestampValue IsNot Nothing AndAlso amountValue IsNot Nothing AndAlso hashValue IsNot Nothing Then
+                    Dim coinItem As New HistoryControl() With {
+                    .Timestamp = DateTime.Parse(timestampValue)
+                }
+
+                    ' Format the timestamp as "dd/MM/yyyy HH:mm:ss"
+                    coinItem.LblDate.Text = coinItem.Timestamp.ToString("dd/MM/yyyy HH:mm:ss")
+                    coinItem.LblQty.Text = amountValue
+                    coinItem.LblTx.Text = txIdValue
+                    coinItem.LblType.Text = typeValue
+                    'coinItem.PBExternal.Visible = True
+
+                    HistoryFlow.Controls.Add(coinItem)
+                    transactionCount += 1
+                Else
+                    Console.WriteLine("Transaction data is incomplete.")
+                End If
+            Next
+
+            ' Add a "View More" item if there are more than 10 transactions
+            If sortedTransactions.Count > 10 Then
+                Dim viewMoreItem As New HistoryControl()
+                viewMoreItem.LblTx.Text = "View More"
+                viewMoreItem.LblDate.Text = ""
+                viewMoreItem.LblQty.Text = ""
+                viewMoreItem.LblType.Text = ""
+                HistoryFlow.Controls.Add(viewMoreItem)
+            End If
+
+            AdjustListControlWidths()
+            ' Adjust the panel heights dynamically
+            'HistoryFlowPanel.Height = HistoryFlowPanel.Controls.Count * 44
+            'HistoryPanel.Height = 159 + HistoryFlowPanel.Height
+
+        Catch ex As Exception
+            ' Handle API call errors
+            Console.WriteLine($"Error getting transaction history: {ex.Message}")
+            ' You might want to display an error message to the user
+        End Try
+    End Sub
+
+    Private Sub PortfolioForm_SizeChanged(sender As Object, e As EventArgs) Handles MyBase.SizeChanged
+        AdjustListControlWidths()
+    End Sub
+
+    Private Sub BottomBar1_BarClicked(sender As Object, e As EventArgs) Handles BottomBar1.BarClicked
+        BottomBar1.Visible = False
+        HistoryPanel.Visible = True
+        AdjustListControlWidths()
+    End Sub
+
+    Private Sub TopHistoryPanel_MouseEnter(sender As Object, e As EventArgs) Handles TopHistoryPanel.MouseEnter, PBArrow.MouseEnter, LblLatest.MouseEnter
+        TopHistoryPanel.FillColor = Color.FromArgb(26, 26, 31)
+        LblLatest.BackColor = Color.FromArgb(26, 26, 31)
+        LblLatest.ForeColor = Color.White
+        PBArrow.BackColor = Color.FromArgb(26, 26, 31)
+        PBArrow.Image = My.Resources.DownArrow_white
+    End Sub
+
+    Private Sub TopHistoryPanel_MouseLeave(sender As Object, e As EventArgs) Handles TopHistoryPanel.MouseLeave, PBArrow.MouseLeave, LblLatest.MouseLeave
+        TopHistoryPanel.FillColor = Color.FromArgb(23, 24, 28)
+        LblLatest.BackColor = Color.FromArgb(23, 24, 28)
+        LblLatest.ForeColor = Color.FromArgb(188, 188, 192)
+        PBArrow.BackColor = Color.FromArgb(23, 24, 28)
+        PBArrow.Image = My.Resources.DownArrow_gray
+    End Sub
+
+    Private Sub TopHistoryPanel_MouseClick(sender As Object, e As MouseEventArgs) Handles TopHistoryPanel.MouseClick, PBArrow.MouseClick, LblLatest.MouseClick
+        HistoryPanel.Visible = False
+        BottomBar1.Visible = True
+    End Sub
 End Class
