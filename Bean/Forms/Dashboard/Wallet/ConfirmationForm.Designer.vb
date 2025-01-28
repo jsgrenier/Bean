@@ -23,7 +23,7 @@ Partial Class ConfirmationForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim Animation5 As Guna.UI2.AnimatorNS.Animation = New Guna.UI2.AnimatorNS.Animation()
+        Dim Animation1 As Guna.UI2.AnimatorNS.Animation = New Guna.UI2.AnimatorNS.Animation()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConfirmationForm))
         Me.MainPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -105,7 +105,7 @@ Partial Class ConfirmationForm
         '
         Me.PanelPublicAddress.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PanelPublicAddress.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.PanelPublicAddress.BackColor = System.Drawing.Color.Transparent
         Me.PanelPublicAddress.BorderColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(56, Byte), Integer))
         Me.PanelPublicAddress.BorderRadius = 10
         Me.PanelPublicAddress.BorderThickness = 1
@@ -189,22 +189,22 @@ Partial Class ConfirmationForm
         '
         Me.Guna2Transition1.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Transparent
         Me.Guna2Transition1.Cursor = Nothing
-        Animation5.AnimateOnlyDifferences = True
-        Animation5.BlindCoeff = CType(resources.GetObject("Animation5.BlindCoeff"), System.Drawing.PointF)
-        Animation5.LeafCoeff = 0!
-        Animation5.MaxTime = 1.0!
-        Animation5.MinTime = 0!
-        Animation5.MosaicCoeff = CType(resources.GetObject("Animation5.MosaicCoeff"), System.Drawing.PointF)
-        Animation5.MosaicShift = CType(resources.GetObject("Animation5.MosaicShift"), System.Drawing.PointF)
-        Animation5.MosaicSize = 0
-        Animation5.Padding = New System.Windows.Forms.Padding(0)
-        Animation5.RotateCoeff = 0!
-        Animation5.RotateLimit = 0!
-        Animation5.ScaleCoeff = CType(resources.GetObject("Animation5.ScaleCoeff"), System.Drawing.PointF)
-        Animation5.SlideCoeff = CType(resources.GetObject("Animation5.SlideCoeff"), System.Drawing.PointF)
-        Animation5.TimeCoeff = 0!
-        Animation5.TransparencyCoeff = 1.0!
-        Me.Guna2Transition1.DefaultAnimation = Animation5
+        Animation1.AnimateOnlyDifferences = True
+        Animation1.BlindCoeff = CType(resources.GetObject("Animation1.BlindCoeff"), System.Drawing.PointF)
+        Animation1.LeafCoeff = 0!
+        Animation1.MaxTime = 1.0!
+        Animation1.MinTime = 0!
+        Animation1.MosaicCoeff = CType(resources.GetObject("Animation1.MosaicCoeff"), System.Drawing.PointF)
+        Animation1.MosaicShift = CType(resources.GetObject("Animation1.MosaicShift"), System.Drawing.PointF)
+        Animation1.MosaicSize = 0
+        Animation1.Padding = New System.Windows.Forms.Padding(0)
+        Animation1.RotateCoeff = 0!
+        Animation1.RotateLimit = 0!
+        Animation1.ScaleCoeff = CType(resources.GetObject("Animation1.ScaleCoeff"), System.Drawing.PointF)
+        Animation1.SlideCoeff = CType(resources.GetObject("Animation1.SlideCoeff"), System.Drawing.PointF)
+        Animation1.TimeCoeff = 0!
+        Animation1.TransparencyCoeff = 1.0!
+        Me.Guna2Transition1.DefaultAnimation = Animation1
         '
         'LoadingControl1
         '

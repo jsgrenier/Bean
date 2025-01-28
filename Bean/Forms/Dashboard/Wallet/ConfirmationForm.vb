@@ -46,4 +46,9 @@ Public Class ConfirmationForm
             Console.WriteLine(ex.ToString)
         End Try
     End Sub
+
+    Private Sub IDLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles IDLabel.LinkClicked
+        Dim parentForm As MainMenu = TryCast(Me.ParentForm, MainMenu)
+        parentForm.SearchTx(IDLabel.Text)
+    End Sub
 End Class

@@ -43,9 +43,9 @@ Partial Class ExplorerForm
         Me.LblTitle.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold)
         Me.LblTitle.Location = New System.Drawing.Point(58, 32)
         Me.LblTitle.Name = "LblTitle"
-        Me.LblTitle.Size = New System.Drawing.Size(202, 37)
+        Me.LblTitle.Size = New System.Drawing.Size(184, 37)
         Me.LblTitle.TabIndex = 20
-        Me.LblTitle.Text = "Block Explorer"
+        Me.LblTitle.Text = "Latest blocks"
         '
         'Guna2Panel1
         '

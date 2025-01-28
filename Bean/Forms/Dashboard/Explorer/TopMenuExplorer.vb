@@ -20,7 +20,7 @@
         If BtnSearch.Checked = False Then
             BtnSearch.Checked = True
             Dim _mainMenu = TryCast(Me.ParentForm, MainMenu)
-            _mainMenu.OpenContentPanel(New SearchForm)
+            _mainMenu.OpenContentPanel(New SearchForm(""))
         End If
     End Sub
 End Class

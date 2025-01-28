@@ -7,10 +7,11 @@ Imports System.Net.Http
 Public Class PortfolioForm
     Private _apiClient As New APIClient()
     Private _cacheFilePath As String = "coin_cache.json" ' Path to your cache file
-
+    Private _privateKey As String
 
     Public Sub New(privatekey As String)
         InitializeComponent()
+        _privateKey = privatekey
         DisplayTokensOwnedAsync(WalletHandler.GetPublicKeyFromPrivateKey(privatekey))
         DisplayTransactionHistory(WalletHandler.GetPublicKeyFromPrivateKey(privatekey))
     End Sub
@@ -26,8 +27,6 @@ Public Class PortfolioForm
         LoadingControl1.Stop()
         LoadingControl1.Visible = False
         CoinsFlowPanel.Visible = True
-        'HistoryPanel.Visible = True
-        'AdjustListControlWidths()
     End Sub
 
 
@@ -199,7 +198,7 @@ Public Class PortfolioForm
 
     Private Sub AdjustListControlWidths()
         Dim widthAdjustment As Integer = If(HistoryFlow.VerticalScroll.Visible, 17, 0)
-        For Each control As HistoryControl In HistoryFlow.Controls
+        For Each control As Control In HistoryFlow.Controls
             control.Width = HistoryFlow.Width - widthAdjustment
         Next
     End Sub
@@ -239,20 +238,28 @@ Public Class PortfolioForm
                 Dim hashValue = transaction("Hash")?.ToString()
                 Dim txIdValue = transaction("TxId")?.ToString()
                 Dim typeValue = transaction("Type")?.ToString()
+                Dim statusValue = transaction("Status")?.ToString()
 
                 If timestampValue IsNot Nothing AndAlso amountValue IsNot Nothing AndAlso hashValue IsNot Nothing Then
-                    Dim coinItem As New HistoryControl() With {
+                    Dim historyItem As New HistoryControl() With {
                     .Timestamp = DateTime.Parse(timestampValue)
                 }
 
+                    If statusValue = "confirmed" Then
+                        historyItem.PBStatus.Image = My.Resources.confirmedIcon
+                    Else
+                        historyItem.PBStatus.Image = My.Resources.pendingIcon
+                    End If
                     ' Format the timestamp as "dd/MM/yyyy HH:mm:ss"
-                    coinItem.LblDate.Text = coinItem.Timestamp.ToString("dd/MM/yyyy HH:mm:ss")
-                    coinItem.LblQty.Text = amountValue
-                    coinItem.LblTx.Text = txIdValue
-                    coinItem.LblType.Text = typeValue
-                    'coinItem.PBExternal.Visible = True
+                    historyItem.LblDate.Text = historyItem.Timestamp.ToString("dd/MM/yyyy HH:mm:ss")
+                    historyItem.LblQty.Text = amountValue
+                    historyItem.LblTx.Text = txIdValue
+                    historyItem.LblType.Text = typeValue
 
-                    HistoryFlow.Controls.Add(coinItem)
+
+                    'coinItem.PBExternal.Visible = True
+                    AddHandler historyItem.Tx_Click, AddressOf Tx_Click
+                    HistoryFlow.Controls.Add(historyItem)
                     transactionCount += 1
                 Else
                     Console.WriteLine("Transaction data is incomplete.")
@@ -261,24 +268,27 @@ Public Class PortfolioForm
 
             ' Add a "View More" item if there are more than 10 transactions
             If sortedTransactions.Count > 10 Then
-                Dim viewMoreItem As New HistoryControl()
-                viewMoreItem.LblTx.Text = "View More"
-                viewMoreItem.LblDate.Text = ""
-                viewMoreItem.LblQty.Text = ""
-                viewMoreItem.LblType.Text = ""
+                Dim viewMoreItem As New ViewMoreControl()
+                AddHandler viewMoreItem.ViewMore_Click, AddressOf ViewMore_Click
                 HistoryFlow.Controls.Add(viewMoreItem)
             End If
 
             AdjustListControlWidths()
-            ' Adjust the panel heights dynamically
-            'HistoryFlowPanel.Height = HistoryFlowPanel.Controls.Count * 44
-            'HistoryPanel.Height = 159 + HistoryFlowPanel.Height
 
         Catch ex As Exception
             ' Handle API call errors
             Console.WriteLine($"Error getting transaction history: {ex.Message}")
             ' You might want to display an error message to the user
         End Try
+    End Sub
+
+    Private Sub ViewMore_Click(sender As Object, e As EventArgs)
+        MsgBox("Viewing more for " & WalletHandler.GetPublicKeyFromPrivateKey(_privatekey))
+    End Sub
+
+    Private Sub Tx_Click(sender As Object, e As EventArgs)
+        Dim historyCtrl As HistoryControl = TryCast(sender, HistoryControl)
+        MsgBox(historyCtrl.LblTx.Text)
     End Sub
 
     Private Sub PortfolioForm_SizeChanged(sender As Object, e As EventArgs) Handles MyBase.SizeChanged

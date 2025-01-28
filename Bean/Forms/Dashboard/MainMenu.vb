@@ -60,6 +60,12 @@
         End If
     End Sub
 
+    Public Sub SearchTx(searchQuery As String)
+        BtnExplorer.Checked = True
+        OpenTopMenuPanel(New TopMenuExplorer)
+        OpenContentPanel(New SearchForm(searchQuery))
+    End Sub
+
     Private Sub BtnContracts_Mousedown(sender As Object, e As MouseEventArgs) Handles BtnContracts.MouseDown
         If BtnContracts.Checked = False Then
             BtnContracts.Checked = True

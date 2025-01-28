@@ -24,12 +24,14 @@ Partial Class HistoryControl
     Private Sub InitializeComponent()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.LblDate = New System.Windows.Forms.Label()
+        Me.LblQty = New System.Windows.Forms.Label()
         Me.LblTx = New System.Windows.Forms.LinkLabel()
         Me.LblType = New System.Windows.Forms.Label()
-        Me.LblQty = New System.Windows.Forms.Label()
+        Me.LblDate = New System.Windows.Forms.Label()
+        Me.PBStatus = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.Guna2Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.PBStatus, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Guna2Panel1
@@ -48,15 +50,17 @@ Partial Class HistoryControl
         Me.TableLayoutPanel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TableLayoutPanel1.ColumnCount = 4
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 210.0!))
+        Me.TableLayoutPanel1.ColumnCount = 5
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 162.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 248.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.LblDate, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.LblTx, 2, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.LblType, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.LblQty, 3, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.LblQty, 4, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.LblTx, 3, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.LblType, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.LblDate, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.PBStatus, 0, 0)
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 1)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
@@ -64,30 +68,31 @@ Partial Class HistoryControl
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1015, 43)
         Me.TableLayoutPanel1.TabIndex = 0
         '
-        'LblDate
+        'LblQty
         '
-        Me.LblDate.AutoEllipsis = True
-        Me.LblDate.AutoSize = True
-        Me.LblDate.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblDate.ForeColor = System.Drawing.Color.Gainsboro
-        Me.LblDate.Location = New System.Drawing.Point(3, 0)
-        Me.LblDate.Name = "LblDate"
-        Me.LblDate.Padding = New System.Windows.Forms.Padding(48, 0, 0, 0)
-        Me.LblDate.Size = New System.Drawing.Size(204, 43)
-        Me.LblDate.TabIndex = 1
-        Me.LblDate.Text = "23/01/2025 - 09:54:32"
-        Me.LblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LblQty.AutoSize = True
+        Me.LblQty.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblQty.Font = New System.Drawing.Font("Segoe UI Semibold", 11.5!, System.Drawing.FontStyle.Bold)
+        Me.LblQty.Location = New System.Drawing.Point(770, 0)
+        Me.LblQty.Name = "LblQty"
+        Me.LblQty.Padding = New System.Windows.Forms.Padding(0, 0, 48, 0)
+        Me.LblQty.Size = New System.Drawing.Size(242, 43)
+        Me.LblQty.TabIndex = 4
+        Me.LblQty.Text = "+ 50000000 BTC"
+        Me.LblQty.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'LblTx
         '
         Me.LblTx.ActiveLinkColor = System.Drawing.Color.White
+        Me.LblTx.AutoEllipsis = True
         Me.LblTx.AutoSize = True
         Me.LblTx.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblTx.Font = New System.Drawing.Font("Segoe UI", 11.5!)
         Me.LblTx.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline
         Me.LblTx.LinkColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.LblTx.Location = New System.Drawing.Point(338, 0)
+        Me.LblTx.Location = New System.Drawing.Point(388, 0)
         Me.LblTx.Name = "LblTx"
-        Me.LblTx.Size = New System.Drawing.Size(426, 43)
+        Me.LblTx.Size = New System.Drawing.Size(376, 43)
         Me.LblTx.TabIndex = 0
         Me.LblTx.TabStop = True
         Me.LblTx.Text = "96d8a27312d14b2b91ac6eadabc76d1e"
@@ -97,25 +102,40 @@ Partial Class HistoryControl
         '
         Me.LblType.AutoSize = True
         Me.LblType.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblType.Location = New System.Drawing.Point(213, 0)
+        Me.LblType.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblType.Location = New System.Drawing.Point(263, 0)
         Me.LblType.Name = "LblType"
         Me.LblType.Size = New System.Drawing.Size(119, 43)
         Me.LblType.TabIndex = 3
         Me.LblType.Text = "Transfer"
         Me.LblType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'LblQty
+        'LblDate
         '
-        Me.LblQty.AutoSize = True
-        Me.LblQty.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblQty.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblQty.Location = New System.Drawing.Point(770, 0)
-        Me.LblQty.Name = "LblQty"
-        Me.LblQty.Padding = New System.Windows.Forms.Padding(0, 0, 48, 0)
-        Me.LblQty.Size = New System.Drawing.Size(242, 43)
-        Me.LblQty.TabIndex = 4
-        Me.LblQty.Text = "+ 50000000 BTC"
-        Me.LblQty.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.LblDate.AutoEllipsis = True
+        Me.LblDate.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblDate.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.LblDate.ForeColor = System.Drawing.Color.Gainsboro
+        Me.LblDate.Location = New System.Drawing.Point(101, 0)
+        Me.LblDate.Name = "LblDate"
+        Me.LblDate.Size = New System.Drawing.Size(156, 43)
+        Me.LblDate.TabIndex = 1
+        Me.LblDate.Text = "23/01/2025 - 09:54:32"
+        Me.LblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'PBStatus
+        '
+        Me.PBStatus.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PBStatus.FillColor = System.Drawing.Color.Empty
+        Me.PBStatus.Image = Global.Bean.My.Resources.Resources.pendingIcon
+        Me.PBStatus.ImageRotate = 0!
+        Me.PBStatus.Location = New System.Drawing.Point(3, 3)
+        Me.PBStatus.Name = "PBStatus"
+        Me.PBStatus.Padding = New System.Windows.Forms.Padding(48, 0, 0, 0)
+        Me.PBStatus.Size = New System.Drawing.Size(92, 37)
+        Me.PBStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PBStatus.TabIndex = 5
+        Me.PBStatus.TabStop = False
         '
         'HistoryControl
         '
@@ -130,6 +150,7 @@ Partial Class HistoryControl
         Me.Guna2Panel1.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        CType(Me.PBStatus, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -140,4 +161,5 @@ Partial Class HistoryControl
     Friend WithEvents LblDate As Label
     Friend WithEvents LblType As Label
     Friend WithEvents LblQty As Label
+    Friend WithEvents PBStatus As Guna.UI2.WinForms.Guna2PictureBox
 End Class
