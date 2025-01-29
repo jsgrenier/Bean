@@ -275,6 +275,10 @@ Public Class PortfolioForm
 
             AdjustListControlWidths()
 
+            If sortedTransactions.Count = 0 Then
+                BottomBar1.Visible = False
+            End If
+
         Catch ex As Exception
             ' Handle API call errors
             Console.WriteLine($"Error getting transaction history: {ex.Message}")
@@ -283,12 +287,13 @@ Public Class PortfolioForm
     End Sub
 
     Private Sub ViewMore_Click(sender As Object, e As EventArgs)
-        MsgBox("Viewing more for " & WalletHandler.GetPublicKeyFromPrivateKey(_privatekey))
+        MsgBox("Viewing more for " & WalletHandler.GetPublicKeyFromPrivateKey(_privateKey))
     End Sub
 
     Private Sub Tx_Click(sender As Object, e As EventArgs)
         Dim historyCtrl As HistoryControl = TryCast(sender, HistoryControl)
-        MsgBox(historyCtrl.LblTx.Text)
+        Dim parentForm As MainMenu = TryCast(Me.ParentForm, MainMenu)
+        parentForm.SearchTx(historyCtrl.LblTx.Text)
     End Sub
 
     Private Sub PortfolioForm_SizeChanged(sender As Object, e As EventArgs) Handles MyBase.SizeChanged
