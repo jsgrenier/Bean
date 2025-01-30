@@ -245,7 +245,7 @@ Public Class PortfolioForm
                     .Timestamp = DateTime.Parse(timestampValue)
                 }
 
-                    If statusValue = "confirmed" Then
+                    If statusValue = "completed" Then
                         historyItem.PBStatus.Image = My.Resources.confirmedIcon
                     Else
                         historyItem.PBStatus.Image = My.Resources.pendingIcon

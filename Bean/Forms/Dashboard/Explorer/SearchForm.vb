@@ -26,11 +26,11 @@ Public Class SearchForm
 
             FlowLayoutPanel1.Controls.Clear()
             Select Case _status
-                Case "Complete"
+                Case "completed"
 
                     Dim ctrl As New DetailControl()
                     ctrl.LblKey.Text = "status"
-                    ctrl.LblValue.Text = _status
+                    ctrl.LblValue.Text = _status 'Completed
                     ctrl.LblValue.Font = New Font("Segoe UI Semibold", 11.25!, FontStyle.Bold, GraphicsUnit.Point)
                     ctrl.LblValue.ForeColor = Color.FromArgb(139, 195, 74)
                     FlowLayoutPanel1.Controls.Add(ctrl)
@@ -40,10 +40,10 @@ Public Class SearchForm
 
 
 
-                Case "Pending"
+                Case "pending"
                     Dim ctrl As New DetailControl()
                     ctrl.LblKey.Text = "status"
-                    ctrl.LblValue.Text = _status
+                    ctrl.LblValue.Text = _status 'Pending
                     ctrl.LblValue.Font = New Font("Segoe UI Semibold", 11.25!, FontStyle.Bold, GraphicsUnit.Point)
                     ctrl.LblValue.ForeColor = Color.Orange
                     FlowLayoutPanel1.Controls.Add(ctrl)
@@ -58,7 +58,7 @@ Public Class SearchForm
             Next
 
 
-            If _status = "Complete" Then
+            If _status = "completed" Then
                 For i As Integer = 0 To 4
                     Dim ctrl As New DetailControl()
                     Select Case i

@@ -1,4 +1,22 @@
 ﻿Public Class TopMenuExplorer
+
+    Public Sub New(menu As Integer)
+
+        ' This call is required by the designer.
+        InitializeComponent()
+        Select Case menu
+            Case 0
+                BtnSearch.Checked = False
+                BtnExplorer.Checked = True
+
+            Case 1
+                BtnExplorer.Checked = False
+                BtnSearch.Checked = True
+
+        End Select
+        ' Add any initialization after the InitializeComponent() call.
+
+    End Sub
     Private Sub StartingTimer_Tick(sender As Object, e As EventArgs) Handles StartingTimer.Tick
         StartingTimer.Stop()
         Guna2Transition1.ShowSync(FlowLayoutPanel1)

@@ -55,14 +55,14 @@
     Private Sub BtnExplorer_Mousedown(sender As Object, e As MouseEventArgs) Handles BtnExplorer.MouseDown
         If BtnExplorer.Checked = False Then
             BtnExplorer.Checked = True
-            OpenTopMenuPanel(New TopMenuExplorer)
+            OpenTopMenuPanel(New TopMenuExplorer(0))
             OpenContentPanel(New ExplorerForm)
         End If
     End Sub
 
     Public Sub SearchTx(searchQuery As String)
         BtnExplorer.Checked = True
-        OpenTopMenuPanel(New TopMenuExplorer)
+        OpenTopMenuPanel(New TopMenuExplorer(1))
         OpenContentPanel(New SearchForm(searchQuery))
     End Sub
 
